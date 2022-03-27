@@ -25,10 +25,12 @@ export default function Aside() {
     paddingBottom: 0,
   };
   const styleAvatar = { width: 100, height: 100, margin: "0 auto" };
-
+const styleLinks = {
+  fontSize: "calc(18px + (24 - 18) * (100vw - 400px) / (800 - 400))",
+};
   return (
     <>
-      <aside>
+      <aside id="aside">
         <Container fixed>
           <Avatar
             alt="halil_esmer-profil-picture"
@@ -50,7 +52,10 @@ export default function Aside() {
                       <ListItemIcon>
                         <ArrowForwardIosRoundedIcon />
                       </ListItemIcon>
-                      <ListItemText primary="About" />
+                      <ListItemText
+                        primary="About"
+                        sx={styleLinks}
+                      />
                     </ListItemButton>
                   </ListItem>
                 </NavLink>

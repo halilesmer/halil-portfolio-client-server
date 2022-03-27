@@ -12,11 +12,11 @@ import {
 import * as React from "react";
 import avatar from "../assets/halil-esmer-profil-picture_sidebar.webp";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
-
+import {NavLink } from "react-router-dom";
 
 export default function Aside() {
   const styleDivider = {
-    background: "white",
+    background: "#b09898",
     marginTop: "10px",
     listStyle: "none !importent",
   };
@@ -38,33 +38,79 @@ export default function Aside() {
           <Box sx={{ width: "100%", maxWidth: 360 }}>
             <nav aria-label="main mailbox folders">
               <List sx={styleLists}>
-                <ListItem disablePadding>
-                  <ListItemButton sx={styleLists}>
-                    <ListItemIcon>
-                      <ArrowForwardIosRoundedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Resume" />
-                  </ListItemButton>
-                </ListItem>
-                <Divider sx={styleDivider} />
-                <ListItem disablePadding>
-                  <ListItemButton sx={styleLists}>
-                    <ListItemIcon>
-                      <ArrowForwardIosRoundedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Projects" />
-                  </ListItemButton>
-                </ListItem>
+                <NavLink
+                  end
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "inactive"
+                  }
+                >
+                  <ListItem disablePadding>
+                    <ListItemButton sx={styleLists}>
+                      <ListItemIcon>
+                        <ArrowForwardIosRoundedIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="About" />
+                    </ListItemButton>
+                  </ListItem>
+                </NavLink>
+
                 <Divider sx={styleDivider} />
 
-                <ListItem disablePadding>
-                  <ListItemButton sx={styleLists}>
-                    <ListItemIcon>
-                      <ArrowForwardIosRoundedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="About" />
-                  </ListItemButton>
-                </ListItem>
+                <NavLink
+                  end
+                  to="/resume"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "inactive"
+                  }
+                >
+                  <ListItem disablePadding>
+                    <ListItemButton sx={styleLists}>
+                      <ListItemIcon>
+                        <ArrowForwardIosRoundedIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Resume" />
+                    </ListItemButton>
+                  </ListItem>
+                </NavLink>
+
+                <Divider sx={styleDivider} />
+
+                <NavLink
+                  end
+                  to="/projects"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "inactive"
+                  }
+                >
+                  <ListItem disablePadding>
+                    <ListItemButton sx={styleLists}>
+                      <ListItemIcon>
+                        <ArrowForwardIosRoundedIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Projects" />
+                    </ListItemButton>
+                  </ListItem>
+                </NavLink>
+
+                <Divider sx={styleDivider} />
+
+                <NavLink
+                  end
+                  to="/contact"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "inactive"
+                  }
+                >
+                  <ListItem disablePadding>
+                    <ListItemButton sx={styleLists}>
+                      <ListItemIcon>
+                        <ArrowForwardIosRoundedIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Contact" />
+                    </ListItemButton>
+                  </ListItem>
+                </NavLink>
               </List>
             </nav>
             <Divider sx={styleDivider} />

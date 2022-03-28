@@ -17,7 +17,9 @@ function App() {
         <ResponsiveAppBar />
 
         <div id="secondDiv">
-          <Aside />
+          <Container id="aside" component={"aside"} fixed>
+            <Aside />
+          </Container>
 
           <Container component={"main"} id="mainContainer">
             <Routes>

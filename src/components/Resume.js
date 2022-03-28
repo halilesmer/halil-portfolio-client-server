@@ -1,6 +1,5 @@
-import { Box, Container } from '@mui/material';
-import React from 'react'
-
+import { Box, Container } from "@mui/material";
+import React from "react";
 
 export const Resume = () => {
   return (
@@ -116,4 +115,4 @@ export const Resume = () => {
       </Container>
     </Box>
   );
-}
+};

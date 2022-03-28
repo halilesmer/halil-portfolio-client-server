@@ -28,100 +28,93 @@ export default function Aside() {
 const styleLinks = {
   fontSize: "calc(18px + (24 - 18) * (100vw - 400px) / (800 - 400))",
 };
+ 
   return (
     <>
-      <aside id="aside">
-        <Container fixed>
-          <Avatar
-            alt="halil_esmer-profil-picture"
-            src={avatar}
-            sx={styleAvatar}
-          />
-          <Box sx={{ width: "100%", maxWidth: 360 }}>
-            <nav aria-label="main mailbox folders">
-              <List sx={styleLists}>
-                <NavLink
-                  end
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive ? "active" : "inactive"
-                  }
-                >
-                  <ListItem disablePadding>
-                    <ListItemButton sx={styleLists}>
-                      <ListItemIcon>
-                        <ArrowForwardIosRoundedIcon />
-                      </ListItemIcon>
-                      <ListItemText
-                        primary="About"
-                        sx={styleLinks}
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                </NavLink>
+      <Container
+        component={"aside"}
+        id="aside"
+        sx={{ padding: "40px 0 0 0", marginLeft:'0' }}
+        fixed
+      >
+        <Avatar
+          alt="halil_esmer-profil-picture"
+          src={avatar}
+          sx={styleAvatar}
+        />
+        <Box sx={{ width: "100%", maxWidth: 360 }}>
+          <nav aria-label="main mailbox folders">
+            <List sx={styleLists}>
+              <NavLink
+                end
+                to="/"
+                className={({ isActive }) => (isActive ? "active" : "inactive")}
+              >
+                <ListItem disablePadding>
+                  <ListItemButton sx={styleLists}>
+                    <ListItemIcon>
+                      <ArrowForwardIosRoundedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="About" sx={styleLinks} />
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
 
-                <Divider sx={styleDivider} />
+              <Divider sx={styleDivider} />
 
-                <NavLink
-                  end
-                  to="/resume"
-                  className={({ isActive }) =>
-                    isActive ? "active" : "inactive"
-                  }
-                >
-                  <ListItem disablePadding>
-                    <ListItemButton sx={styleLists}>
-                      <ListItemIcon>
-                        <ArrowForwardIosRoundedIcon />
-                      </ListItemIcon>
-                      <ListItemText primary="Resume" />
-                    </ListItemButton>
-                  </ListItem>
-                </NavLink>
+              <NavLink
+                end
+                to="/resume"
+                className={({ isActive }) => (isActive ? "active" : "inactive")}
+              >
+                <ListItem disablePadding>
+                  <ListItemButton sx={styleLists}>
+                    <ListItemIcon>
+                      <ArrowForwardIosRoundedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Resume" />
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
 
-                <Divider sx={styleDivider} />
+              <Divider sx={styleDivider} />
 
-                <NavLink
-                  end
-                  to="/projects"
-                  className={({ isActive }) =>
-                    isActive ? "active" : "inactive"
-                  }
-                >
-                  <ListItem disablePadding>
-                    <ListItemButton sx={styleLists}>
-                      <ListItemIcon>
-                        <ArrowForwardIosRoundedIcon />
-                      </ListItemIcon>
-                      <ListItemText primary="Projects" />
-                    </ListItemButton>
-                  </ListItem>
-                </NavLink>
+              <NavLink
+                end
+                to="/projects"
+                className={({ isActive }) => (isActive ? "active" : "inactive")}
+              >
+                <ListItem disablePadding>
+                  <ListItemButton sx={styleLists}>
+                    <ListItemIcon>
+                      <ArrowForwardIosRoundedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Projects" />
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
 
-                <Divider sx={styleDivider} />
+              <Divider sx={styleDivider} />
 
-                <NavLink
-                  end
-                  to="/contact"
-                  className={({ isActive }) =>
-                    isActive ? "active" : "inactive"
-                  }
-                >
-                  <ListItem disablePadding>
-                    <ListItemButton sx={styleLists}>
-                      <ListItemIcon>
-                        <ArrowForwardIosRoundedIcon />
-                      </ListItemIcon>
-                      <ListItemText primary="Contact" />
-                    </ListItemButton>
-                  </ListItem>
-                </NavLink>
-              </List>
-            </nav>
-            <Divider sx={styleDivider} />
-          </Box>
-        </Container>
-      </aside>
+              <NavLink
+                end
+                to="/contact"
+                className={({ isActive }) => (isActive ? "active" : "inactive")}
+              >
+                <ListItem disablePadding>
+                  <ListItemButton sx={styleLists}>
+                    <ListItemIcon>
+                      <ArrowForwardIosRoundedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Contact" />
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
+            </List>
+          </nav>
+          <Divider sx={styleDivider} />
+        </Box>
+      </Container>
     </>
   );
 }

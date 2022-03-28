@@ -8,6 +8,7 @@ import { Contact } from "./components/Contact";
 import { Impressum } from "./components/Impressum";
 import { Projects } from "./components/Projects";
 import Footer from "./components/Footer";
+import { Container } from "@mui/material";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <div id="secondDiv">
           <Aside />
 
-          <main id="mainContainer">
+          <Container component={"main"} id="mainContainer">
             <Routes>
               <Route path="/" element={<About />} />
               <Route path="/resume" element={<Resume />} />
@@ -26,9 +27,9 @@ function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/impressum" element={<Impressum />} />
             </Routes>
-            </main>
-            </div>
-            <Footer />
+          </Container>
+        </div>
+        <Footer />
       </div>
     </>
   );

@@ -7,6 +7,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import * as React from "react";
 import avatar from "../assets/halil-esmer-profil-picture_sidebar.webp";
@@ -29,12 +30,25 @@ export default function Aside() {
     margin: "40px auto auto auto",
   };
   const styleLinks = {
-    fontSize: "calc(18px + (24 - 18) * (100vw - 400px) / (800 - 400))",
+    fontSize:
+      "calc(18px + (20 - 18) * (100vw - 400px) / (800 - 400))",
+    /* fontSize:
+      "50px", */
   };
 
   return (
     <>
-      <Avatar alt="halil_esmer-profil-picture" src={avatar} sx={styleAvatar} />
+      <NavLink
+        end
+        to="/"
+        className={({ isActive }) => (isActive ? "active" : "inactive")}
+      >
+        <Avatar
+          alt="halil_esmer-profil-picture"
+          src={avatar}
+          sx={styleAvatar}
+        />
+      </NavLink>
       <Box sx={{ width: "100%", maxWidth: 360 }}>
         <nav aria-label="main mailbox folders">
           <List sx={styleLists}>
@@ -48,7 +62,14 @@ export default function Aside() {
                   <ListItemIcon>
                     <ArrowForwardIosRoundedIcon />
                   </ListItemIcon>
-                  <ListItemText primary="About" sx={styleLinks} />
+                  <ListItemText
+                    disableTypography
+                    primary={
+                      <Typography type="body2" style={styleLinks}>
+                        About
+                      </Typography>
+                    }
+                  />
                 </ListItemButton>
               </ListItem>
             </NavLink>
@@ -65,7 +86,14 @@ export default function Aside() {
                   <ListItemIcon>
                     <ArrowForwardIosRoundedIcon />
                   </ListItemIcon>
-                  <ListItemText primary="Resume" />
+                  <ListItemText
+                    disableTypography
+                    primary={
+                      <Typography type="body2" style={styleLinks}>
+                        Resume
+                      </Typography>
+                    }
+                  />
                 </ListItemButton>
               </ListItem>
             </NavLink>
@@ -82,7 +110,14 @@ export default function Aside() {
                   <ListItemIcon>
                     <ArrowForwardIosRoundedIcon />
                   </ListItemIcon>
-                  <ListItemText primary="Projects" />
+                  <ListItemText
+                    disableTypography
+                    primary={
+                      <Typography type="body2" style={styleLinks}>
+                        Projects
+                      </Typography>
+                    }
+                  />
                 </ListItemButton>
               </ListItem>
             </NavLink>
@@ -99,7 +134,14 @@ export default function Aside() {
                   <ListItemIcon>
                     <ArrowForwardIosRoundedIcon />
                   </ListItemIcon>
-                  <ListItemText primary="Contact" />
+                  <ListItemText
+                    disableTypography
+                    primary={
+                      <Typography type="body2" style={styleLinks}>
+                        Contact
+                      </Typography>
+                    }
+                  />
                 </ListItemButton>
               </ListItem>
             </NavLink>

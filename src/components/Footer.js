@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import Link from "@mui/material/Link";
 
-export default function Footer() {
+export const Footer=()=> {
   return (
     <>
       <footer>

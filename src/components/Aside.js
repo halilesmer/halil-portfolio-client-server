@@ -54,7 +54,7 @@ export default function Aside() {
           <List sx={styleLists}>
             <NavLink
               end
-              to="/"
+              to="/about"
               className={({ isActive }) => (isActive ? "active" : "inactive")}
             >
               <ListItem disablePadding>

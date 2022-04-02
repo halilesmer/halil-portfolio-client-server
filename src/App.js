@@ -7,7 +7,7 @@ import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Impressum } from "./components/Impressum";
 import { Projects } from "./components/Projects";
-import Footer from "./components/Footer";
+import {Footer} from "./components/Footer";
 import { Container } from "@mui/material";
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
           <Container component={"main"} id="mainContainer">
             <Routes>
               <Route path="/" element={<About />} />
+              <Route path="/about" element={<About />} />
               <Route path="/resume" element={<Resume />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/projects" element={<Projects />} />

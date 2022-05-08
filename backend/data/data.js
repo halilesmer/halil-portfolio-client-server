@@ -1,7 +1,7 @@
 export const data = [
     {
         aboutHeading: "Portfolio",
-        aboutText: "Hallo, ich bin Halil Esmer; Junior Fullstack-Developer aus Berlin.Programmieren ist meine Leidenschaft. Mir gefällt es, durch Software- Lösungen Prozesse leichter und besser handhabbar zu machen. Mich treibt an, meinen Wissensstand immer zu erweitern und das neu Gelernte in meinen Projekten anzuwenden.Mit jedem Projekt setze ich mich tiefgehend auseinander und mag es, für knifflige Herausforderungen überzeugende Lösungen zu finden. Bevorzugt arbeite ich mit JavaScript und REACT. Kontaktieren Sie mich gerne für Anfragen zur Zusammenarbeit.",
+        aboutText: `Hallo, ich bin Halil Esmer; Junior Fullstack-Developer aus Berlin. Programmieren ist meine Leidenschaft. Mir gefällt es, durch Software- Lösungen Prozesse leichter und besser handhabbar zu machen. Mich treibt an, meinen Wissensstand immer zu erweitern und das neu Gelernte in meinen Projekten anzuwenden. Mit jedem Projekt setze ich mich tiefgehend auseinander und mag es, für knifflige Herausforderungen überzeugende Lösungen zu finden. Bevorzugt arbeite ich mit JavaScript und REACT.Kontaktieren Sie mich gerne für Anfragen zur Zusammenarbeit.`,
     },
     {
         projectName: "Portfolio",

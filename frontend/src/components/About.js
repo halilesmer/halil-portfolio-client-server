@@ -13,8 +13,8 @@ export const About = () => {
   const fetchItems = async () => {
     const data = await fetch("/about");
     const items = await data.json();
-    setItems(items);
     console.log('items: ', items);
+    setItems(items);
  
   };
 
@@ -24,12 +24,10 @@ export const About = () => {
       <Container maxWidth="lm">
         {items && items.map((item, index) => {
           return (
-            <div key={index}>  <p>
-              {items && items.map(item => item.aboutHeading)}
-            </p>
-              <p>
-                {items && items.map(item => item.aboutText)}
-              </p></div>
+            <div key={index}>
+              <h4>{item.aboutHeading}</h4>
+              <p>{item.aboutText}</p>
+             </div>
           )
 })}
        

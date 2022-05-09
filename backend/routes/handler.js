@@ -32,15 +32,15 @@ const aboutSchema = new mongoose.Schema({
 const About = mongoose.model("About", aboutSchema);
 
 //insert data into db
-// data.forEach((item) => {
-//   const newText = new About({
-//     aboutHeading: item.aboutHeading,
-//     aboutText: item.aboutText,
+data.forEach((item) => {
+  const newText = new About({
+    aboutHeading: item.aboutHeading,
+    aboutText: item.aboutText,
 
-//   });
+  });
 
-//   newText.save();
-// });
+  newText.save();
+});
 //Testing ends
 
 

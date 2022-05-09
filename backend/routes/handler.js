@@ -32,15 +32,15 @@ const aboutSchema = new mongoose.Schema({
 const About = mongoose.model("About", aboutSchema);
 
 //insert data into db
-data.forEach((item) => {
-  const newText = new About({
-    aboutHeading: item.aboutHeading,
-    aboutText: item.aboutText,
+// data.forEach((item) => {
+//   const newText = new About({
+//     aboutHeading: item.aboutHeading,
+//     aboutText: item.aboutText,
 
-  });
+//   });
 
-  newText.save();
-});
+//   newText.save();
+// });
 //Testing ends
 
 
@@ -53,7 +53,10 @@ router.get("/about", (req, res) => {
     //res.end(JSON.stringify(str));
   /* res.end(JSON.stringify(data)); */
   About.find({})
-    .then((items) => res.json(items))
+    .then((items) => {
+      console.log('items: ', items);
+     return res.json(items)
+    })
     .catch((err) => console.log(err));
 });
 

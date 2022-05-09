@@ -12,9 +12,13 @@ const app = express();
 //MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors()); 
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", routesHandler); 
+app.use("/", routesHandler);
+// app.get("/", (req, res) => {
+//     res.send('Express here')
+// }); 
 const PORT = 5000;
 
 app.listen(PORT, () => {

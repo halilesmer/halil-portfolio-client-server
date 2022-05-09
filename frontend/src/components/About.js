@@ -3,26 +3,31 @@ import { Box } from '@mui/system'
 import React, { useEffect, useState } from 'react'
 
 export const About = () => {
-  const [items, setItems] = useState();
+  const [texts, setTexts] = useState();
 
+  // useEffect(() => {
+  //   fetchItems();
+  // }, []);
+
+  // const fetchItems = async () => {
+  //   const data = await fetch("http://localhost:5000/about");
+  //   const objects = await data.json();
+  //   console.log('items: ', objects);
+  // setItems(objects);
+  // };
   useEffect(() => {
-    fetchItems();
-  }, []);
-
-
-  const fetchItems = async () => {
-    const data = await fetch("/about");
-    const items = await data.json();
-    console.log('items: ', items);
-    setItems(items);
- 
-  };
+      fetch("http://localhost:5000/about")
+        .then(res => res.json())
+        .then(resJson => setTexts(resJson))
+      console.log('items: ', texts);
+ }, []);
+  
 
 
   return (
     <Box id="about">
       <Container maxWidth="lm">
-        {items && items.map((item, index) => {
+        {texts && texts.map((item, index) => {
           return (
             <div key={index}>
               <h4>{item.aboutHeading}</h4>

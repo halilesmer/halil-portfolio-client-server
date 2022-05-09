@@ -1,9 +1,9 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "server": "nodemon index.js",
+    "server": "nodemon server.js",
     "client": "npm run start --prefix ../frontend",
     "dev": "concurrentliy --kill-others-on-fail \"npm run server\" \"npm run client\" specified\""
   },

@@ -18,8 +18,11 @@ export const About = () => {
   useEffect(() => {
       fetch("http://localhost:5000/about")
         .then(res => res.json())
-        .then(resJson => setTexts(resJson))
-      console.log('items: ', texts);
+        .then(resJson => {
+          console.log('resJson: ', resJson);
+          return setTexts(resJson)
+        })
+      
  }, []);
   
 

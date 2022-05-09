@@ -1,7 +1,7 @@
-[build]
-command="npm run build"
-functions="functions"
-publish= "build"
+#[build]
+#command="npm run build"
+#functions="functions"
+#publish= "build"
 
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
@@ -18,6 +18,8 @@ publish= "build"
 
   # Default build command.
   command = "npm run build"
+
+functions="frontend/functions"
 
 # The following redirect is intended for use with most SPAs that handle
 # routing internally.

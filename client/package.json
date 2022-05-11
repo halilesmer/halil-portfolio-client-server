@@ -2,6 +2,7 @@
   "name": "portfolio-halil",
   "version": "0.3.0",
   "private": true,
+  "proxy": "http://localhost:5000/",
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
@@ -23,10 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "netlify dev"
+    "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:5000/",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -44,8 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "netlify-cli": "^10.3.0"
   }
 }

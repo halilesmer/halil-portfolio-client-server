@@ -2,19 +2,9 @@ import { useState, useEffect } from "react";
 import { Container } from '@mui/material';
 import { Box } from '@mui/system'
 
-
-// Components
-//import Card from "./components/Card";
-
-
-export const About = ({match}) => {
-  //const pageNumber = match.params.pageNumber || 1;
+export const About = ({ match }) => {
 
   const [posts, setPosts] = useState([]);
- 
-
-  //const [page, setPage] = useState(pageNumber);
-  //const [pages, setPages] = useState(1);
 
   useEffect(() => {
     const fecthPosts = async () => {
@@ -22,12 +12,8 @@ export const About = ({match}) => {
       try {
         const res = await fetch(`/api/v1/posts`);
 
-        //const res = await fetch("http://localhost:5000/");
-
-        const { data} = await res.json();
+        const { data } = await res.json();
         console.log('data: ', data);
-
-       // setPages(totalPages);
         setPosts(data);
 
       } catch (error) {
@@ -40,7 +26,7 @@ export const About = ({match}) => {
     fecthPosts();
   }, []);
 
- 
+
   return (
     <Box id="about">
       <Container maxWidth="lm">

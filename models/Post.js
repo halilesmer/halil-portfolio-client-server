@@ -8,6 +8,10 @@ const postSchema = new mongoose.Schema({
     text1: {
         type: String,
         required: [true, "Please provide an author"],
+    },
+    contact1: {
+        type: String,
+        required: [true, "Please provide an author"],
     }
 });
 

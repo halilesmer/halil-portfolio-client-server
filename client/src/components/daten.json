@@ -18,5 +18,10 @@
       "title": "Manage Employees",
       "description":"Add and edit your employees.",
       "link": "https://silver-connect-gmbh.netlify.app/"
+    },
+    {
+      "title": "Super Market",
+      "description":"Add and edit your employees.",
+      "link": "https://super-market55.netlify.app/"
     }
   ]

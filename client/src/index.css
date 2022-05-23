@@ -133,6 +133,7 @@ main#mainContainer {
   height: 94vh;
   border: 1px solid #783636;
   overflow: auto;
+  padding-bottom: 14em;
 
   background: rgb(243 235 204)
 }

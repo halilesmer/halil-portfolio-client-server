@@ -1,0 +1,22 @@
+[
+    {
+      "title": "React Data Filter App",
+      "description": "Hallo, ich bin Halil Esmer; Junior Fullstack-Developer aus Berlin",
+      "link": "https://react-data-filter-app.netlify.app/"
+    },
+    {
+      "title": "dem Küpü",
+      "description":"Mayflower tea from the Black Sea region",
+      "link": "https://dem-kupu.netlify.app/"
+    },
+    {
+      "title": "Silver Connect GmbH",
+      "description":"Wir bieten optimale Lösungen für Ihre Transporte in Berlin.",
+      "link": "https://silver-connect-gmbh.netlify.app/"
+    },
+    {
+      "title": "Manage Employees",
+      "description":"Add and edit your employees.",
+      "link": "https://silver-connect-gmbh.netlify.app/"
+    }
+  ]

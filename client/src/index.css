@@ -5,7 +5,9 @@
 
   text-decoration: none;
 }
-
+html {
+  font-size: 16px;
+}
 body {
   width: 100vw;
   height: 100vh;
@@ -20,7 +22,7 @@ header#appBar {
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   header#appBar {
 
     position: unset !important;
@@ -70,7 +72,7 @@ aside#aside {
   transition: all 2.5s ease !important;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   aside#aside {
     min-width: 0px;
     position: relative;
@@ -168,6 +170,9 @@ footer {
 
 }
 
+footer button.footerButton {
+  height: 3px;
+}
 @media only screen and (max-width: 600px) {
   footer {
 
@@ -183,9 +188,36 @@ footer {
 
 /* Footer Navigation ----------------------------- ends */
 
-footer button.footerButton {
-  height: 3px;
+/* Card Header ----------------------------- starts */
+
+.cardHeader{
+  font-size: 22px !important;
+  text-transform: capitalize;
 }
+@media screen and (max-width: 1080px) {
+  .cardHeader {
+    font-size: 18px !important;
+  }
+}
+@media screen and (max-width: 960px) {
+  .cardHeader {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .cardHeader {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+  }
+}
+@media screen and (max-width: 380px) {
+  .cardHeader {
+    font-size: 3vw !important;
+    font-weight: 600 !important;
+  }
+}
+/* Card Header ----------------------------- ends */
 
 .pdf-container {
   width: 100%;

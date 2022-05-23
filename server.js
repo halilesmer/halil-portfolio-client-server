@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.use("/api/v1/posts", postRoutes);
 
+
 // from tutorial -starts
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '/client/build')))
@@ -22,6 +23,11 @@ if (process.env.NODE_ENV === 'production') {
 } else {
     app.get('/', (req, res) => {
         res.send('Api running...')
+
+    })
+
+    app.get('/api/resume', (req, res) => {
+        res.send({ 'pdfLink': 'https://www.docdroid.net/q3H6zSm/2022-02-24-cv-halil-pdf' })
     })
 }
 // from tutorial -ends

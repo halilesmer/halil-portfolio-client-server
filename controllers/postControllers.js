@@ -24,9 +24,6 @@ exports.getAllPosts = async (req, res) => {
 
         res.status(200).json({
             status: "success",
-            // count: result.length,
-            // page,
-            // pages,
             data: result,
         });
     } catch (error) {

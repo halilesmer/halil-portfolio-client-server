@@ -7,11 +7,15 @@ const postSchema = new mongoose.Schema({
     },
     text1: {
         type: String,
-        required: [true, "Please provide an author"],
+        required: [true, "Please provide a text"],
     },
     contact1: {
         type: String,
-        required: [true, "Please provide an author"],
+        required: [true, "Please provide a text"],
+    },
+    cvpdf: {
+        type: String,
+        required: [true, "Please provide an CV"],
     }
 });
 

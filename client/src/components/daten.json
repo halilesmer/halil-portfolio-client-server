@@ -1,27 +1,38 @@
 [
-    {
-      "title": "React Data Filter App",
-      "description": "Hallo, ich bin Halil Esmer; Junior Fullstack-Developer aus Berlin",
-      "link": "https://react-data-filter-app.netlify.app/"
-    },
-    {
-      "title": "dem Küpü",
-      "description":"Mayflower tea from the Black Sea region",
-      "link": "https://dem-kupu.netlify.app/"
-    },
-    {
-      "title": "Silver Connect GmbH",
-      "description":"Wir bieten optimale Lösungen für Ihre Transporte in Berlin.",
-      "link": "https://silver-connect-gmbh.netlify.app/"
-    },
-    {
-      "title": "Manage Employees",
-      "description":"Add and edit your employees.",
-      "link": "https://silver-connect-gmbh.netlify.app/"
-    },
-    {
-      "title": "Super Market",
-      "description":"Add and edit your employees.",
-      "link": "https://super-market55.netlify.app/"
-    }
-  ]
+  {
+    "title": "React Data Filter App",
+    "description": "Hallo, ich bin Halil Esmer; Junior Fullstack-Developer aus Berlin",
+    "img": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "link": "https://react-data-filter-app.netlify.app/"
+  },
+  {
+    "title": "dem Küpü",
+    "description": "Mayflower tea from the Black Sea region",
+    "img": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "link": "https://dem-kupu.netlify.app/"
+  },
+  {
+    "title": "Silver Connect GmbH",
+    "description": "Wir bieten optimale Lösungen für Ihre Transporte in Berlin.",
+    "img": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "link": "https://silver-connect-gmbh.netlify.app/"
+  },
+  {
+    "title": "Manage Employees",
+    "description": "Add and edit your employees.",
+    "img": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "link": "https://silver-connect-gmbh.netlify.app/"
+  },
+  {
+    "title": "Super Market",
+    "description": "Add and edit your employees.",
+    "img": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "link": "https://super-market55.netlify.app/"
+  },
+  {
+    "title": "Books",
+    "description": "See your booklist.",
+    "img": "http://dummyimage.com/100x100.png/ff4444/ffffff",
+    "link": "https://books55.netlify.app/"
+  }
+]

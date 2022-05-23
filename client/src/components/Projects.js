@@ -55,7 +55,7 @@ export const Projects = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="http://dummyimage.com/100x100.png/ff4444/ffffff"
+                    image={item.img}
                     alt="green iguana"
                   />
                 </Link>

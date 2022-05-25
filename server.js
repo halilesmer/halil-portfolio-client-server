@@ -32,13 +32,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 // from tutorial -ends
 
+
 /* Set the Nodemailer from youtube - Send Email From ReactJS and Node App -starts*/
-// const bodyParser = require("body-parser")
+const bodyParser = require("body-parser")
 const cors = require("cors")
 const nodemailer = require("nodemailer")
 
-// app.use(bodyParser.urlencoded({ extended: true }))
-// app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+ app.use(bodyParser.json())
 
 app.use(cors())
 

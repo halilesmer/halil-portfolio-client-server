@@ -11,7 +11,6 @@ export const About = () => {
       try {
         const res = await fetch(`/api/v1/posts`);
         const { data } = await res.json();
-        console.log('data: ', data);
         setPosts(data);
       } catch (error) {
         console.log(error);

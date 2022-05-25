@@ -32,5 +32,51 @@ if (process.env.NODE_ENV === 'production') {
 }
 // from tutorial -ends
 
+/* Set the Nodemailer from youtube - Send Email From ReactJS and Node App -starts*/
+// const bodyParser = require("body-parser")
+const cors = require("cors")
+const nodemailer = require("nodemailer")
+
+// app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.json())
+
+app.use(cors())
+
+app.post("/send_mail", cors(), async (req, res) => {
+	let { firstN, lastN,phoneN, email, subjectText, message} = req.body
+
+	const transport = nodemailer.createTransport({
+		host: process.env.MAIL_HOST,
+		port: process.env.MAIL_PORT,
+		auth: {
+			user: process.env.MAIL_USER,
+			pass: process.env.MAIL_PASS
+		}
+	})
+
+	await transport.sendMail({
+		from: process.env.MAIL_FROM,
+		to: "halil@esmer.de",
+		subject: `${subjectText}`,
+		html: `<div style="
+        border: 1px solid black;
+        padding: 20px;
+        font-family: sans-serif;
+        line-height: 2;
+        font-size: 20px; 
+        ">
+        <h2>'You have a Message from ${firstN} ${lastN}'</h2>
+        <p>First and Lastname: ${firstN} ${lastN}</p>
+        <p>Phone: ${phoneN}</p>
+        <p>Email: ${email}</p>
+        <p>Message: ${message}</p>
+    
+         </div>
+    `
+	})
+})
+/* Set the Nodemailer from youtube - Send Email From ReactJS and Node App -ends*/
+
+
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

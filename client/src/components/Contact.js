@@ -79,7 +79,7 @@ export const Contact = () => {
                   <TextField label="Message" multiline rows={4} placeholder="Type your phone message" variant="outlined" fullWidth required value={message} onChange={(e) => setMessage(e.target.value)} />
                 </Grid>
                 <Grid xs={12} item>
-                  <Button type="submit" variant="contained" color="primary" fullWidth>Submit</Button>
+                  <Button style={{background: '#373737'}} type="submit" variant="contained" color="primary" fullWidth>Submit</Button>
                 </Grid>
               </Grid>
 

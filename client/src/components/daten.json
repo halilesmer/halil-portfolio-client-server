@@ -7,7 +7,7 @@
   },
   {
     "title": "dem Küpü",
-    "description": "Mayflower tea from the Black Sea region",
+    "description": "Mayflower tea from the Black Sea region. Tea of the Black Sea region is characterized by the fact that snow falls on tea leaves. This is a natural protection so that no pesticides have to be used. This tea is a natural product and the highest quality tea all year round.",
     "img": "http://dummyimage.com/100x100.png/ff4444/ffffff",
     "link": "https://dem-kupu.netlify.app/"
   },
@@ -19,19 +19,19 @@
   },
   {
     "title": "Manage Employees",
-    "description": "Add and edit your employees.",
+    "description": "You can do a list of your employees and edit them. ",
     "img": "http://dummyimage.com/100x100.png/ff4444/ffffff",
     "link": "https://manage-employees55.netlify.app"
   },
   {
     "title": "Super Market",
-    "description": "Add and edit your employees.",
+    "description": "Online shopping market. You can put several vegetables in the cart.",
     "img": "http://dummyimage.com/100x100.png/ff4444/ffffff",
     "link": "https://super-market55.netlify.app/"
   },
   {
     "title": "Books",
-    "description": "See your booklist.",
+    "description": "Create a list of your books wit cover.Change the theme between night and day mode.",
     "img": "http://dummyimage.com/100x100.png/ff4444/ffffff",
     "link": "https://books55.netlify.app/"
   }

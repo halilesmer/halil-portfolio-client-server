@@ -16,36 +16,27 @@ import daten from "./daten.json";
 export const Projects = () => {
   const styleCard = {
     maxWidth: '345',
-    maxHeight: '650px'
-
+    maxHeight: '650px',
+    boxShadow: 5,
+    p: 1,
+margin: 0,
   };
-  // const styleCardHeader = {
-  //   fontSize: 'calc(16px + 5 * ((100vw - 320px) / 680))'
-    
-  // };
 
   return (
-    <Box id="about">
+    <Box id="projects">
       <Container maxWidth="lm">
-        <h1
-          style={{
-            textAlign: "center",
-            fontWeight: "700",
-            paddingBottom: "30px",
-          }}
-        >
+        <h1>
           Projects
         </h1>
         <Grid
-          // alignItems="center"
-          // justify="center"
           container
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
           style={{ minHeight: "100vh" }}
         >
           {daten.map((item, index) => (
-            <Grid item xs={2} sm={4} md={4} key={index}>
+            <Grid item xs={2} sm={4} md={4} key={index}
+            style={{ height: "fit-content" }}>
               <Card sx={styleCard}>
                 <Link
                   href={item.link}
@@ -64,7 +55,7 @@ export const Projects = () => {
                   <Typography className="cardHeader"  gutterBottom variant="h5" component="div">
                     {item.title}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography  variant="body2" component='p' color="text.secondary">
                     {item.description}
                   </Typography>
                 </CardContent>
@@ -86,49 +77,3 @@ export const Projects = () => {
     </Box>
   );
 };
-
-/*     <Box id="about">
-      <Container maxWidth="lm">
-        <h1
-          style={{
-            textAlign: "center",
-            fontWeight: "700",
-            paddingBottom: "30px",
-          }}
-        >
-          Projects
-        </h1>
-        <Grid
-          container
-          spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
-        >
-          {array.map((_, index) => (
-            <Grid item xs={2} sm={4} md={4} key={index}>
-              <Card sx={{ maxWidth: 345 }}>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image="http://dummyimage.com/100x100.png/ff4444/ffffff"
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Lizard
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small">Share</Button>
-                  <Button size="small">Learn More</Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </Box> */

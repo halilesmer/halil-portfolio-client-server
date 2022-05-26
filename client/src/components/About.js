@@ -27,7 +27,7 @@ export const About = () => {
         {posts && posts.map((post, index) => {
           return (
             <div key={index}>
-              <h4>{post.title}</h4>
+              <h1>{post.title}</h1>
               <p>{post.text1}</p>
               <p>{post.contact1}</p>
             </div>

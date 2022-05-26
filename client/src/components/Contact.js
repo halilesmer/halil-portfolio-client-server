@@ -46,7 +46,7 @@ export const Contact = () => {
     <Box id="contact">
       <Container>
 
-        <Typography gutterBottom variant="h3" align="center">
+        <Typography gutterBottom variant="h1">
           Contact Form
         </Typography>
 

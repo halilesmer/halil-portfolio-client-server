@@ -5,9 +5,15 @@
 
   text-decoration: none;
 }
+
 html {
   font-size: 16px;
+  /* --- for  '.cardHeader + p' --starts  */
+  --lh: 1.4rem;
+  line-height: var(--lh);
+  /* --- for  '.cardHeader + p' --ends  */
 }
+
 body {
   width: 100vw;
   height: 100vh;
@@ -21,13 +27,9 @@ header#appBar {
   right: -1px !important;
 }
 
-
 @media only screen and (max-width: 1000px) {
   header#appBar {
-
     position: unset !important;
-
-    /* min-width: 200px !important; */
     width: 100% !important;
     height: 50px !important;
     background-color: #2b2b2bf0 !important;
@@ -35,11 +37,20 @@ header#appBar {
     top: 0 !important;
     color: darkgray !important;
     transition: all 2s ease !important;
-
+    min-height: 0px !important;
   }
 
+  .css-1cndkqf-MuiToolbar-root {
+    min-height: 0 !important;
+  }
 }
 
+/* --- Hamburger button --- starts */
+@media (min-width: 900px) {
+  .css-1lvtzne {
+    display: inline-block !important;
+  }
+}
 /* Header ----------------------------- ends */
 
 div#secondDiv {
@@ -133,9 +144,15 @@ main#mainContainer {
   height: 94vh;
   border: 1px solid #783636;
   overflow: auto;
-  padding-bottom: 14em;
-
+  padding-bottom: 20vh;
   background: rgb(243 235 204)
+}
+
+main#mainContainer h1 {
+  text-align: center;
+  font-size: revert;
+  font-weight: 700;
+  padding-bottom: 30px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -174,6 +191,7 @@ footer {
 footer button.footerButton {
   height: 3px;
 }
+
 @media only screen and (max-width: 600px) {
   footer {
 
@@ -191,35 +209,71 @@ footer button.footerButton {
 
 /* Card Header ----------------------------- starts */
 
-.cardHeader{
+.cardHeader {
   font-size: 22px !important;
   text-transform: capitalize;
+  width: 100% !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis !important;
 }
-@media screen and (max-width: 1080px) {
+
+/* @media screen and (max-width: 1080px) {
   .cardHeader {
     font-size: 18px !important;
   }
-}
+} */
+
 @media screen and (max-width: 960px) {
   .cardHeader {
-    font-size: 14px !important;
+    font-size: 16px !important;
     font-weight: 600 !important;
   }
 }
+
 @media screen and (max-width: 650px) {
   .cardHeader {
-    font-size: 12px !important;
-    font-weight: 600 !important;
+    font-size: 14px !important;
+
   }
 }
+
 @media screen and (max-width: 380px) {
   .cardHeader {
     font-size: 3vw !important;
-    font-weight: 600 !important;
+
   }
 }
+
+/* The Hide Overflow & Place Ellipsis Pure CSS Way -starts */
+.cardHeader + p {
+    --max-lines: 2;
+    position: relative;
+    max-height: calc(var(--lh) * var(--max-lines));
+    overflow: hidden;
+    padding-right: 1rem; /* space for ellipsis */
+    line-height: inherit !important;
+
+}
+  .cardHeader + p::before {
+    position: absolute;
+    content: "...";
+    inset-block-end: 0; /* "bottom" */
+    inset-inline-end: 0; /* "right" */
+  }
+  .cardHeader + p::after {
+    content: "";
+    position: absolute;
+    inset-inline-end: 0; /* "right" */
+    width: 1rem;
+    height: 1rem;
+    background: white;
+  }
+/* The Hide Overflow & Place Ellipsis Pure CSS Way -ends */
+
 /* Card Header ----------------------------- ends */
 
+/* ----------- PDF Container -- starts */
 .pdf-container {
   width: 100%;
   height: 800px;
@@ -229,3 +283,29 @@ footer button.footerButton {
   justify-content: center;
   align-items: center;
 }
+
+/* ----------- PDF Container -- ends */
+/* ----------- about -- starts */
+#about {
+  height: 70vh !important;
+  display: table-cell !important;
+  width: 94vw !important;
+  margin: 0 !important;
+  vertical-Align: middle !important;
+  text-align: center !important;
+
+}
+
+/* ----------- about -- ends */
+/* ----------- impressum -- starts */
+#impressum {
+  height: 70vh !important;
+  display: table-cell !important;
+  width: 94vw !important;
+  margin: 0 !important;
+  vertical-Align: middle !important;
+  text-align: center !important;
+
+}
+
+/* ----------- impressum -- ends */

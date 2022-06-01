@@ -10,7 +10,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 // Import styles of default layout plugin
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
-import pdf from '../assets/pdf/CV_Halil_2022-02.pdf'
+import pdf from '../assets/pdf/2022-05-30 CV_Halil_en.pdf'
 
 export const Resume = () => {
   // pdf file  state

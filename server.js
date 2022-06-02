@@ -41,7 +41,7 @@ const nodemailer = require("nodemailer")
 app.use(bodyParser.urlencoded({ extended: true }))
  app.use(bodyParser.json())
 
-app.use(cors())
+app.use(cors({credentials: true, origin: 'https://halil-portfolio-webside.netlify.app/'}))
 
 app.post("/send_mail", cors(), async (req, res) => {
 	let { firstN, lastN,phoneN, email, subjectText, message} = req.body

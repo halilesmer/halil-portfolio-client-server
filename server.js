@@ -41,7 +41,8 @@ const nodemailer = require("nodemailer")
 app.use(bodyParser.urlencoded({ extended: true }))
  app.use(bodyParser.json())
 
-app.use(cors({credentials: true, origin: 'https://halil-portfolio-webside.netlify.app'}))
+//app.use(cors({credentials: true, origin: 'https://halil-portfolio-webside.netlify.app'}))
+app.use(cors)
 
 app.post("/send_mail", cors(), async (req, res) => {
 	let { firstN, lastN,phoneN, email, subjectText, message} = req.body
@@ -78,6 +79,5 @@ app.post("/send_mail", cors(), async (req, res) => {
 })
 /* Set the Nodemailer from youtube - Send Email From ReactJS and Node App -ends*/
 
-
-const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const port = process.env.PORT || 4000;
+app.listen(port, () => console.log(`Server running on port ${port}`));

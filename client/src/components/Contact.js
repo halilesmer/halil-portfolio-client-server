@@ -14,8 +14,8 @@ import useFetch from './UseFetch.js';
 import TransitionAlerts from './TransitionAlerts.js';
 
 export const Contact = () => {
-  //const { post } = useFetch('http://localhost:4000/');
-  const { post } = useFetch('https://portfolio-halil.herokuapp.com/');
+  const { post } = useFetch('http://localhost:4000/');
+  //const { post } = useFetch('https://portfolio-halil.herokuapp.com/');
   const [open, setOpen] = useState(false);
 
   const [firstN, setFirstN] = useState("")

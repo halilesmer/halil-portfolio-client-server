@@ -11,36 +11,71 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import useFetch from './UseFetch.js';
+import axios from "axios"
+
 import TransitionAlerts from './TransitionAlerts.js';
 
 export const Contact = () => {
-  const { post } = useFetch('http://localhost:4000/');
+  const { post } = useFetch('http://localhost:4000');
   //const { post } = useFetch('https://portfolio-halil.herokuapp.com/');
   const [open, setOpen] = useState(false);
 
-  const [firstN, setFirstN] = useState("")
+  const [input, setInput] = useState({
+    firstN: '',
+    lastN: '',
+    phoneN: '',
+    email: '',
+    subjectText: '',
+    message: '',
+  })
+  const {firstN, lastN, phoneN, email, subjectText, message } = input;
+  console.log("firstN: ", firstN);
+ /*  const [firstN, setFirstN] = useState("")
   const [lastN, setLastN] = useState('')
   const [phoneN, setPhoneN] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-  const [subjectText, setSubjectText] = useState('')
+  const [subjectText, setSubjectText] = useState('') */
 
-
-  function sendMessage(event) {
+   const sendMessage =  (event)=>  {
     event.preventDefault();
-    post("send_mail/", {
+
+ post("/send_mail", {
       firstN, lastN, phoneN, email, subjectText, message
     }).then(data => {
       console.log(data);
+      setOpen(true)
     }).catch(error => console.error(error));
-    event.target.reset();
-    setFirstN(''); setLastN(''); setPhoneN(''); setEmail(''); setMessage(''); setSubjectText('');
-    setOpen(true)
+    
+    
+    setInput({
+      firstN: '',
+      lastN: '',
+      phoneN: '',
+      email: '',
+      subjectText: '',
+      message: '',
+    });
+     /* timeout of TransitionAlerts */
     setTimeout(() => {
       setOpen(false)
     }, 2000)
-  }
 
+  }
+ /*  const sendMessage = async (e) => {
+    try {
+      await axios.post("http://localhost:4000/send_mail", {
+        firstN, lastN, phoneN, email, subjectText, message
+      })
+
+    } catch (error) {
+      console.error(error)
+    }
+    setOpen(true)
+  setTimeout(() => {
+    setOpen(false)
+  }, 2000)
+  } */
 
 
   return (
@@ -62,22 +97,22 @@ export const Contact = () => {
 
               <Grid container spacing={1}>
                 <Grid xs={12} sm={6} item>
-                  <TextField label="First Name" placeholder="Enter first name" variant="outlined" fullWidth required value={firstN} onChange={(e) => setFirstN(e.target.value)} />
+                  <TextField label="First Name" placeholder="Enter first name" variant="outlined" fullWidth required  value={input.firstN} onChange={(e) => setInput({ ...input, firstN: e.target.value })}/>
                 </Grid>
                 <Grid xs={12} sm={6} item>
-                  <TextField label="Last Name" placeholder="Enter last name" variant="outlined" fullWidth required value={lastN} onChange={(e) => setLastN(e.target.value)} />
+                  <TextField label="Last Name" placeholder="Enter last name" variant="outlined" fullWidth required value={input.lastN} onChange={(e) => setInput({ ...input, lastN: e.target.value })}/>
                 </Grid>
                 <Grid xs={12} item>
-                  <TextField type="email" label="Email" placeholder="Enter your email" variant="outlined" fullWidth required value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <TextField type="email" label="Email" placeholder="Enter your email" variant="outlined" fullWidth required value={input.email} onChange={(e) => setInput({ ...input, email: e.target.value })}/>
                 </Grid>
                 <Grid xs={12} item>
-                  <TextField type="number" label="Phone" placeholder="Enter your phone number" variant="outlined" fullWidth required value={phoneN} onChange={(e) => setPhoneN(e.target.value)} />
+                  <TextField type="number" label="Phone" placeholder="Enter your phone number" variant="outlined" fullWidth required value={input.phoneN} onChange={(e) => setInput({ ...input, phoneN: e.target.value })} />
                 </Grid>
                 <Grid xs={12} item>
-                  <TextField label="subject" placeholder="Subject " variant="outlined" fullWidth required value={subjectText} onChange={(e) => setSubjectText(e.target.value)} />
+                  <TextField label="subject" placeholder="Subject " variant="outlined" fullWidth required value={input.subjectText} onChange={(e) => setInput({ ...input, subjectText: e.target.value })}/>
                 </Grid>
                 <Grid xs={12} item>
-                  <TextField label="Message" multiline rows={4} placeholder="Type your phone message" variant="outlined" fullWidth required value={message} onChange={(e) => setMessage(e.target.value)} />
+                  <TextField label="Message" multiline rows={4} placeholder="Type your phone message" variant="outlined" fullWidth required value={input.message} onChange={(e) => setInput({ ...input, message: e.target.value })}/>
                 </Grid>
                 <Grid xs={12} item>
                   <Button style={{background: '#373737'}} type="submit" variant="contained" color="primary" fullWidth>Submit</Button>

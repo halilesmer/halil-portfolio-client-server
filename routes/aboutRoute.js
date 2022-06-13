@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
         const { id } = req.params;
 
         if (!mongoose.Types.ObjectId.isValid(id)) {
-            res.status(404).json({ message: 'Data is not valid' })
+            res.status(404).json({ message: 'About Data is not valid' })
         }
 
         const data = await Data.findById(id);
@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
 
         res.status(200).json(data);
     } catch (error) {
-        res.status(404).json({ message: 'Data not found' });
+        res.status(404).json({ message: 'About Data not found' });
     }
 
 })
@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
 
     } catch (error) {
         console.log(error.message);
-        res.json({ message: 'Create the message failed' })
+        res.json({ message: 'Create the About message failed' })
     }
 })
 //update a data
@@ -52,7 +52,7 @@ router.put('/:id', async (req, res) => {
         const { id } = req.params;
         
         if (!mongoose.Types.ObjectId.isValid(id)) {
-            res.status(404).json({ message: 'Data is not valid' })
+            res.status(404).json({ message: 'About Data is not valid' })
         }
         
         const { title, content, creator, image } = req.body;
@@ -66,7 +66,7 @@ router.put('/:id', async (req, res) => {
         res.status(200).json(updateData);
     } catch (error) {
         console.log(error.message);
-        res.json({ message: 'Update failed' })
+        res.json({ message: 'About Update failed' })
     }
 })
 
@@ -80,10 +80,10 @@ router.delete('/:id', async (req, res) => {
 
         await Data.findByIdAndDelete(id);
 
-        res.status(200).json({message: 'Data has been deleted!'})
+        res.status(200).json({message: 'About Data has been deleted!'})
     } catch (error) {
         console.log(error.message);
-        res.json({ message: 'Data delete failed!' })
+        res.json({ message: 'About Data delete failed!' })
     }
 })
 

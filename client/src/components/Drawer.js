@@ -1,7 +1,6 @@
 import * as React from "react";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import Aside from "./Aside";
-import { Container } from "@mui/material";
+import { Container, SwipeableDrawer } from "@mui/material";
+import Aside from "./Aside.js";
 
 export default function Drawer({ state, setState }) {
   const toggleDrawer = (open) => (event) => {

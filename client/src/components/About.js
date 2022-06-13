@@ -1,35 +1,34 @@
 import { useState, useEffect } from "react";
-import { Container } from '@mui/material';
+import { Container, CircularProgress } from '@mui/material';
 import { Box } from '@mui/system'
+
+import { fetchDataAbout } from '../axios/index.js';
 
 export const About = () => {
 
-  const [posts, setPosts] = useState([]);
+  const [data, setData] = useState([])
 
   useEffect(() => {
-    const fecthPosts = async () => {
-      try {
-        const res = await fetch(`/api/v1/posts`);
-        const { data } = await res.json();
-        setPosts(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    const getData = async () => {
+      const { data } = await fetchDataAbout();
+      setData(data)
+    }
 
-    fecthPosts();
-  }, []);
+    getData()
+  }, [])
 
 
   return (
     <Box id="about">
       <Container maxWidth="lm">
-        {posts && posts.map((post, index) => {
+        {!data.length ? <CircularProgress /> : 
+data.map((item, index) => {
           return (
             <div key={index}>
-              <h1>{post.title}</h1>
-              <p>{post.text1}</p>
-              <p>{post.contact1}</p>
+              <h1>{item.title}</h1>
+              <p>{item.description_1}</p>
+              <p>{item.contact_1}</p>
+              
             </div>
           )
         })}

@@ -1,39 +1,49 @@
-require("dotenv").config({ path: "./config.env" });
-const path = require('path');
-const express = require("express");
-const connectDB = require("./config/db");
-const postRoutes = require("./routes/postRoutes");
+import express from 'express'
+import mongoose from 'mongoose'
+import cors from 'cors'
+import dotenv from 'dotenv'
+import aboutRoute from './routes/aboutRoute.js';
+import resumeRoute from './routes/resumeRoute.js';
+import projectsRoute from './routes/projectsRoute.js';
+import contactRoute from './routes/contactRoute.js';
 
-connectDB();
 
+
+dotenv.config();
 const app = express();
 
-app.use(express.json());
+const port = process.env.PORT || 4000;
 
-app.use("/api/v1/posts", postRoutes);
+app.use(express.json({ limit: '20mb' }))
+
+app.use(cors());
+
+app.use('/', aboutRoute);
+app.use('/about', aboutRoute);
+app.use('/resume', resumeRoute);
+app.use('/projects', projectsRoute);
+app.use('/contact', contactRoute);
+/* app.get('/', (req, res) => {
+    res.json({ message: '5000. porta yapilan get istegi' })
+}) */
+
+app.listen(port, () => {
+    console.log(`${port}. listen in port`);
+
+    mongoose.connect(process.env.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+       // useFindAndModify: true,
+
+    }).then(() => console.log('database connected'))
+        .catch((err) => console.log(err))
+
+})   
 
 
-// from tutorial -starts
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '/client/build')))
+/* 
+//Set the Nodemailer  - Send Email From ReactJS and Node App -ends
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client, build', 'index.html'))
-    })
-} else {
-    app.get('/', (req, res) => {
-        res.send('Api running...')
-
-    })
-
-    app.get('/api/resume', (req, res) => {
-        res.send({ 'pdfLink': 'https://www.docdroid.net/q3H6zSm/2022-02-24-cv-halil-pdf' })
-    })
-}
-// from tutorial -ends
-
-
-/* Set the Nodemailer from youtube - Send Email From ReactJS and Node App -starts*/
 const bodyParser = require("body-parser")
 const cors = require("cors")
 const nodemailer = require("nodemailer")
@@ -43,6 +53,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //app.use(cors({credentials: true, origin: 'https://halil-portfolio-webside.netlify.app'}))
 app.use(cors)
+
 
 app.post("/send_mail", cors(), async (req, res) => {
 	let { firstN, lastN,phoneN, email, subjectText, message} = req.body
@@ -77,7 +88,4 @@ app.post("/send_mail", cors(), async (req, res) => {
     `
 	})
 })
-/* Set the Nodemailer from youtube - Send Email From ReactJS and Node App -ends*/
-
-const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`Server running on port ${port}`));
+// Set the Nodemailer  - Send Email From ReactJS and Node App -ends*/ 

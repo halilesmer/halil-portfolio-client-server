@@ -1,6 +1,9 @@
 import axios from 'axios';
 import keys from "../config.js"
-const API = axios.create({ baseURL: keys.serverURL });
+const API = axios.create({
+    baseURL: keys.serverURL,
+    withCredentials: true,
+});
 
 
 export const fetchDataAbout = async () => API.get('/about');

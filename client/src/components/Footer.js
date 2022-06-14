@@ -30,7 +30,7 @@ export const Footer = () => {
           </NavLink>
           <span>|</span>
           <Link
-            href="mailto:halilesmer3655@gmail.com" underline="none"
+            href="mailto:halil@esmer.de" underline="none"
             style={{
               display: 'flex',
               justifyContent: 'center',

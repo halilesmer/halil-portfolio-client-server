@@ -17,8 +17,10 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 app.use(express.json({ limit: '20mb' }))
-
-app.use(cors());
+const options = {
+  origin: ["http://localhost:3000", "https://www.esmer.de"],
+};
+app.use(cors(options));
 
 app.use(bodyParser.urlencoded({ extended: true }))
  app.use(bodyParser.json())

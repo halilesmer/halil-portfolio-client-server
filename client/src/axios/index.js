@@ -1,6 +1,6 @@
 import axios from 'axios';
-
-const API = axios.create({ baseURL: 'http://localhost:4000' });
+import keys from "../config.js"
+const API = axios.create({ baseURL: keys.serverURL });
 
 
 export const fetchDataAbout = async () => API.get('/about');

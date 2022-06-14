@@ -31,7 +31,10 @@ export default function useFetch(baseUrl) {
         },
         body: JSON.stringify(body)
       })
-        .then(response => response.json())
+        .then(response => {
+          console.log('response', response)
+          return response.json()
+        }).catch(err => console.log('err', err))
         
     });
   }

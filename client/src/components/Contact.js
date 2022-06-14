@@ -12,11 +12,11 @@ import {
 import React, { useState } from "react";
 import useFetch from './UseFetch.js';
 import axios from "axios"
-
+import keys from "../config.js";
 import TransitionAlerts from './TransitionAlerts.js';
 
 export const Contact = () => {
-  const { post } = useFetch('http://localhost:4000');
+  const { post } = useFetch(keys.serverURL);
   //const { post } = useFetch('https://portfolio-halil.herokuapp.com/');
   const [open, setOpen] = useState(false);
 
@@ -30,12 +30,6 @@ export const Contact = () => {
   })
   const {firstN, lastN, phoneN, email, subjectText, message } = input;
   console.log("firstN: ", firstN);
- /*  const [firstN, setFirstN] = useState("")
-  const [lastN, setLastN] = useState('')
-  const [phoneN, setPhoneN] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  const [subjectText, setSubjectText] = useState('') */
 
    const sendMessage =  (event)=>  {
     event.preventDefault();

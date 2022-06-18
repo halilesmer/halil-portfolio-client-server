@@ -3,6 +3,17 @@ import mongoose from "mongoose";
 import Data from "../db/dataModelContact.js";
 const router = express.Router();
 
+const app = express();
+
+// test starts
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://www.esmer55.de"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  // test ends
+
+
 //get all datas from database
 router.get('/', async (req, res) => {
     try {

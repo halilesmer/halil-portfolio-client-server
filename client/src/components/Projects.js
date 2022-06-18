@@ -43,7 +43,7 @@ export const Projects = () => {
 
   return (
     <Box id="projects">
-      <Container maxWidth="lm">
+      <Container maxWidth="lm" sx={{textAlign: 'center'}}>
         <h1>
           Projects
         </h1>

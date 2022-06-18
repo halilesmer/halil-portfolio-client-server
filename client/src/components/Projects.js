@@ -44,6 +44,8 @@ export const Projects = () => {
   return (
     <Box id="projects">
       <Container maxWidth="lm" sx={{textAlign: 'center'}}>
+      
+      {!data.length && <CircularProgress /> }
         <h1>
           Projects
         </h1>
@@ -53,12 +55,12 @@ export const Projects = () => {
           columns={{ xs: 4, sm: 8, md: 12 }}
           style={{ minHeight: "100vh" }}
         >
-          {!data.length ? <CircularProgress /> :
+          {data.length &&
 
             data.map((item, index) => {
               return (
                 <Grid item xs={12} sm={4} md={6} key={index}
-                  style={{ height: "fit-content" }}>
+                  style={{ height: "fit-content", textAlign: 'initial', margin: 'auto'}}>
                   <Card sx={styleCard}>
                     <Link
                       href={item?.link}
@@ -70,7 +72,7 @@ export const Projects = () => {
                         height="140"
                         image={item?.img}
                         alt="green iguana"
-                        style={{ height: '300px' }}
+                        style={{ height: '300px', inlineSize:'auto', margin: 'auto'}}
                       />
                     </Link>
 

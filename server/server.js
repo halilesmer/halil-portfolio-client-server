@@ -39,7 +39,7 @@ app.use("/contact", contactRoute);
 
 //app.use(cors({credentials: true, origin: 'https://halil-portfolio-webside.netlify.app'}))
 
-app.post("/send_mail", cors(options), async (req, res) => {
+app.post("/send_mail", async (req, res) => {
   let { firstN, lastN, phoneN, email, subjectText, message } = req.body;
 
   const transport = nodemailer.createTransport({

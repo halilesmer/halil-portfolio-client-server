@@ -82,7 +82,7 @@ export const Contact = () => {
 
         <TransitionAlerts open={open}  />
 
-        <Card style={{ maxWidth: 650, minWidth: 250, background: '#fbf2d9', margin: '0 auto', padding: '20px 5px' }}>
+        <Card style={{ maxWidth: 650, minWidth: 250, background: '#ececec', margin: '0 auto', padding: '20px 5px' }}>
           <CardContent>
             <Typography gutterBottom variant="h5">Contact me</Typography>
             <Typography gutterBottom variant="body2" color='GrayText' component={'p'}>Fill up the form and I will get back to you within 24 hours</Typography>

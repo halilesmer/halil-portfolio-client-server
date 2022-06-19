@@ -26,8 +26,8 @@ data.map((item, index) => {
           return (
             <div key={index}>
               <h1>{item.title}</h1>
-              <p>{item.description_1}</p>
-              <p>{item.contact_1}</p>
+              <p style={{textAlign: 'justify', letterSpacing: '3px'}}>{item.description_1}</p>
+              <p style={{textAlign: 'left', letterSpacing: '3px'}}>{item.contact_1}</p>
               
             </div>
           )

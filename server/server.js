@@ -49,16 +49,17 @@ app.use("/contact", contactRoute);
 app.post("/send_mail", async (req, res) => {
   let { firstN, lastN, phoneN, email, subjectText, message } = req.body;
 
-  const transport = nodemailer.createTransport({
-    host: process.env.MAIL_HOST,
-    port: process.env.MAIL_PORT,
-    auth: {
-      user: process.env.MAIL_USER,
-      pass: process.env.MAIL_PASS,
-    },
-  });
-
-  await transport.sendMail({
+  
+  try {
+    const transport = nodemailer.createTransport({
+      host: process.env.MAIL_HOST,
+      port: process.env.MAIL_PORT,
+      auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
+      },
+    });
+  const emailSent = await transport.sendMail({
     from: process.env.MAIL_FROM,
     to: "halil@esmer.de",
     subject: `${subjectText}`,
@@ -78,6 +79,12 @@ app.post("/send_mail", async (req, res) => {
          </div>
     `,
   });
+    console.log('emailSent', emailSent)
+  res.status(200).json({message: "email successfully sent"})
+  } catch (err) {
+    res.status(500).json({ message: "error", error: err });
+}
+  
 });
 // Set the Nodemailer  - Send Email From ReactJS and Node App -ends*/
 

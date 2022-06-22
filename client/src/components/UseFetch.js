@@ -34,7 +34,21 @@ export default function useFetch(baseUrl) {
         .then(response => {
           console.log('response', response)
           return response.json()
-        }).catch(err => console.log('err', err))
+        })
+        .then(data => {
+          if (!data) {
+            setLoading(false);
+          console.log('data doesnt resolved!')
+            return reject(data);
+          }
+          setLoading(false);
+          resolve(data);
+        })
+        .catch(error => {
+          setLoading(false);
+          console.log('usefetch error post')
+          reject(error);
+        });
         
     });
   }

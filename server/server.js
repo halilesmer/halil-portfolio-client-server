@@ -86,7 +86,6 @@ app.post("/send_mail", async (req, res) => {
 }
   
 });
-// Set the Nodemailer  - Send Email From ReactJS and Node App -ends*/
 
 app.listen(port, () => {
   console.log(`${port}. listen in port`);

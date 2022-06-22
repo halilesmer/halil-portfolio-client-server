@@ -7,19 +7,19 @@ import {
   Container,
   TextField,
   Typography,
-  Button,
+  Button, 
+  CircularProgress
 } from "@mui/material";
 import React, { useState } from "react";
 import useFetch from './UseFetch.js';
-// import axios from "axios"
 import keys from "../config.js";
+
 import TransitionAlerts from './TransitionAlerts.js';
 
 export const Contact = () => {
   const { post } = useFetch(keys.serverURL);
-  //const { post } = useFetch('https://portfolio-halil.herokuapp.com/');
   const [open, setOpen] = useState(false);
-
+const [buttonCircular, setButtonCircular] = useState(false)
   const [input, setInput] = useState({
     firstN: '',
     lastN: '',
@@ -28,20 +28,29 @@ export const Contact = () => {
     subjectText: '',
     message: '',
   })
-  const {firstN, lastN, phoneN, email, subjectText, message } = input;
-  console.log("firstN: ", firstN);
+  const { firstN, lastN, phoneN, email, subjectText, message } = input;
 
-   const sendMessage =  (event)=>  {
+
+
+  const sendMessage = (event) => {
     event.preventDefault();
-
- post("/send_mail", {
+    setButtonCircular(true)
+    post("/send_mail", {
       firstN, lastN, phoneN, email, subjectText, message
     }).then(data => {
-      console.log(data);
+      console.log("data1: ", data);
+      console.log("open1: ", open);
       setOpen(true)
+      setButtonCircular(false)
+      /* timeout of TransitionAlerts */
+      setTimeout(() => {
+        setOpen(false)
+
+      }, 20000)
+
     }).catch(error => console.error(error));
-    
-    
+
+    console.log("open2: ", open);
     setInput({
       firstN: '',
       lastN: '',
@@ -50,37 +59,24 @@ export const Contact = () => {
       subjectText: '',
       message: '',
     });
-     /* timeout of TransitionAlerts */
-    setTimeout(() => {
-      setOpen(false)
-    }, 2000)
+
 
   }
- /*  const sendMessage = async (e) => {
-    try {
-      await axios.post("http://localhost:4000/send_mail", {
-        firstN, lastN, phoneN, email, subjectText, message
-      })
 
-    } catch (error) {
-      console.error(error)
-    }
-    setOpen(true)
-  setTimeout(() => {
-    setOpen(false)
-  }, 2000)
-  } */
+
+
 
 
   return (
     <Box id="contact">
       <Container>
-
         <Typography gutterBottom variant="h1">
           Contact Form
         </Typography>
 
-        <TransitionAlerts open={open}  />
+    
+
+        <TransitionAlerts open={open} />
 
         <Card style={{ maxWidth: 650, minWidth: 250, background: '#ececec', margin: '0 auto', padding: '20px 5px' }}>
           <CardContent>
@@ -91,27 +87,29 @@ export const Contact = () => {
 
               <Grid container spacing={1}>
                 <Grid xs={12} sm={6} item>
-                  <TextField label="First Name" placeholder="Enter first name" variant="outlined" fullWidth required  value={input.firstN} onChange={(e) => setInput({ ...input, firstN: e.target.value })}/>
+                  <TextField label="First Name" placeholder="Enter first name" variant="outlined" fullWidth required value={input.firstN} onChange={(e) => setInput({ ...input, firstN: e.target.value })} />
                 </Grid>
                 <Grid xs={12} sm={6} item>
-                  <TextField label="Last Name" placeholder="Enter last name" variant="outlined" fullWidth required value={input.lastN} onChange={(e) => setInput({ ...input, lastN: e.target.value })}/>
+                  <TextField label="Last Name" placeholder="Enter last name" variant="outlined" fullWidth required value={input.lastN} onChange={(e) => setInput({ ...input, lastN: e.target.value })} />
                 </Grid>
                 <Grid xs={12} item>
-                  <TextField type="email" label="Email" placeholder="Enter your email" variant="outlined" fullWidth required value={input.email} onChange={(e) => setInput({ ...input, email: e.target.value })}/>
+                  <TextField type="email" label="Email" placeholder="Enter your email" variant="outlined" fullWidth required value={input.email} onChange={(e) => setInput({ ...input, email: e.target.value })} />
                 </Grid>
                 <Grid xs={12} item>
                   <TextField type="number" label="Phone" placeholder="Enter your phone number" variant="outlined" fullWidth required value={input.phoneN} onChange={(e) => setInput({ ...input, phoneN: e.target.value })} />
                 </Grid>
                 <Grid xs={12} item>
-                  <TextField label="subject" placeholder="Subject " variant="outlined" fullWidth required value={input.subjectText} onChange={(e) => setInput({ ...input, subjectText: e.target.value })}/>
+                  <TextField label="subject" placeholder="Subject " variant="outlined" fullWidth required value={input.subjectText} onChange={(e) => setInput({ ...input, subjectText: e.target.value })} />
                 </Grid>
                 <Grid xs={12} item>
-                  <TextField label="Message" multiline rows={4} placeholder="Type your phone message" variant="outlined" fullWidth required value={input.message} onChange={(e) => setInput({ ...input, message: e.target.value })}/>
+                  <TextField label="Message" multiline rows={4} placeholder="Type your phone message" variant="outlined" fullWidth required value={input.message} onChange={(e) => setInput({ ...input, message: e.target.value })} />
                 </Grid>
                 <Grid xs={12} item>
-                  <Button style={{background: '#373737'}} type="submit" variant="contained" color="primary" fullWidth>Submit</Button>
+      
+                  <Button style={{ background: '#373737' }} type="submit" variant="contained" color="primary" fullWidth> { buttonCircular ? <CircularProgress/> : 'Submit' }  </Button>
                 </Grid>
               </Grid>
+
 
             </form>
 
@@ -124,18 +122,3 @@ export const Contact = () => {
   )
 
 };
-/* const sendMessage = async (e) => {
-    e.preventDefault();
-    console.log('message sendet');
-    try {
-      await axios.post("http://localhost:4000/send_mail", {
-        firstN, lastN, phoneN, email, subjectText, message
-      })
-      
-      e.target.reset();
-    } catch (error) {
-      console.error(error)
-    }
-    snackbar.show('Ohaaaaaaaaaaaaaaaaaaai!');
-    e.target.reset();
-  } */

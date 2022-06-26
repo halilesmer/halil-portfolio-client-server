@@ -18,7 +18,7 @@ app.use(express.json({ limit: "20mb" }));
 
 const options = {
   credentials: true,
-  origin: ["http://localhost:3000", "https://www.55.de"],
+  origin: ["http://localhost:3000", "https://www.esmer55.de"],
 };
 app.use(cors(options));
 

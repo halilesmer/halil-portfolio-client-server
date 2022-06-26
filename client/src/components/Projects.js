@@ -57,7 +57,7 @@ export const Projects = () => {
         >
           {data.length &&
 
-            data.map((item, index) => {
+            data?.map((item, index) => {
               return (
                 <Grid item xs={12} sm={4} md={6} key={index}
                   style={{ height: "fit-content", textAlign: 'initial', margin: 'auto'}}>

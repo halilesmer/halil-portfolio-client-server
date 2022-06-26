@@ -18,15 +18,12 @@ app.use(express.json({ limit: "20mb" }));
 
 const options = {
   credentials: true,
-  origin: ["http://localhost:3000", "https://www.esmer.de"],
+  origin: ["http://localhost:3000", "https://www.55.de"],
 };
 app.use(cors(options));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-
-
 
 
 // app.use('/', aboutRoute);
@@ -38,14 +35,9 @@ app.use("/contact", contactRoute);
 
 
 
-/* app.get('/', (req, res) => {
-    res.json({ message: 'Port 4000' })
-}) */
-
-//Set the Nodemailer  - Send Email From ReactJS and Node App -ends
-
 //app.use(cors({credentials: true, origin: 'https://halil-portfolio-webside.netlify.app'}))
 
+//Set the Nodemailer  - Send Email From ReactJS and Node App -ends
 app.post("/send_mail", async (req, res) => {
   let { firstN, lastN, phoneN, email, subjectText, message } = req.body;
 

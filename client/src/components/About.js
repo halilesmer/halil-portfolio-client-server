@@ -22,7 +22,7 @@ export const About = () => {
     <Box id="about">
       <Container maxWidth="lm">
         {!data.length ? <CircularProgress /> : 
-data.map((item, index) => {
+data?.map((item, index) => {
           return (
             <div key={index}>
               <h1>{item.title}</h1>

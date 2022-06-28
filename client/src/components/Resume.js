@@ -9,7 +9,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import '@react-pdf-viewer/zoom/lib/styles/index.css';
 
-import pdf from '../assets/pdf/2022-05-30 CV_Halil_en.pdf'
+import pdf from '../assets/pdf/2022-05-30_CV_Halil_en.pdf'
 /* import { fetchDataResume } from '../axios/index.js'; */
 
 export const Resume = () => {

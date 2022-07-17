@@ -14,9 +14,6 @@ const aboutSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    cvpdf: {
-        type: String,
-    },
  
 });
 

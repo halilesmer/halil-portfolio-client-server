@@ -1,21 +1,19 @@
 import {
   Box,
-  Container,
-  Grid,
+  Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
-  Button,
-  Typography,
-  Link,
   CircularProgress,
+  Container,
+  Grid,
+  Link,
+  Typography,
 } from "@mui/material";
+import React, { useEffect, useState } from "react";
+
 import GitHubIcon from '@mui/icons-material/GitHub';
-
-import React, { useState, useEffect } from "react";
-
-
 import { fetchDataProjects } from '../axios/index.js';
 
 export const Projects = () => {
@@ -60,7 +58,7 @@ export const Projects = () => {
             data?.map((item, index) => {
               return (
                 <Grid item xs={12} sm={4} md={6} key={index}
-                  style={{ height: "fit-content", textAlign: 'initial', margin: 'auto'}}>
+                  style={{ height: "fit-content", textAlign: 'initial', margin: 'auto', paddingLeft: 'unset', maxWidth:'325px'}}>
                   <Card sx={styleCard}>
                     <Link
                       href={item?.link}

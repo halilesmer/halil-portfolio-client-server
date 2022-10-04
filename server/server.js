@@ -1,13 +1,13 @@
-import express from "express";
-import mongoose from "mongoose";
+import aboutRoute from "./routes/aboutRoute.js";
 import bodyParser from "body-parser";
-import nodemailer from "nodemailer";
+import contactRoute from "./routes/contactRoute.js";
 import cors from "cors";
 import dotenv from "dotenv";
-import aboutRoute from "./routes/aboutRoute.js";
-import resumeRoute from "./routes/resumeRoute.js";
+import express from "express";
+import mongoose from "mongoose";
+import nodemailer from "nodemailer";
 import projectsRoute from "./routes/projectsRoute.js";
-import contactRoute from "./routes/contactRoute.js";
+import resumeRoute from "./routes/resumeRoute.js";
 
 dotenv.config();
 const app = express();

@@ -1,15 +1,16 @@
-
-import React, { useState } from 'react'
-// Import Worker and the main Viewer component
-import { Worker, Viewer } from '@react-pdf-viewer/core';
-import { zoomPlugin } from '@react-pdf-viewer/zoom';
 // Import the styles
 import '@react-pdf-viewer/core/lib/styles/index.css';
 // Import styles of default layout plugin
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import '@react-pdf-viewer/zoom/lib/styles/index.css';
 
+import React, { useState } from 'react'
+// Import Worker and the main Viewer component
+import { Viewer, Worker } from '@react-pdf-viewer/core';
+
 import pdf from '../assets/pdf/2022-05-30_CV_Halil_en.pdf'
+import { zoomPlugin } from '@react-pdf-viewer/zoom';
+
 /* import { fetchDataResume } from '../axios/index.js'; */
 
 export const Resume = () => {
@@ -43,7 +44,7 @@ export const Resume = () => {
             borderBottom: "1px solid rgba(0, 0, 0, 0.1)",
             display: "flex",
             justifyContent: "center",
-            padding: "4px"
+            padding: "4px",
           }}
         >
           <ZoomOutButton />
@@ -52,22 +53,20 @@ export const Resume = () => {
         </div>
         {/* render this if we have a pdf file */}
         {pdfFile && (
-          <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.14.305/build/pdf.worker.min.js">
-            <Viewer fileUrl={pdfFile}
+          <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js">
+            <Viewer
+              fileUrl={pdfFile}
               plugins={[zoomPluginInstance]}
               theme={{
-                theme: 'auto',
+                theme: "auto",
               }}
-            >
-            </Viewer>
+            ></Viewer>
           </Worker>
         )}
 
         {/* render this if we have pdfFile state null   */}
         {!pdfFile && <>No file is selected yet</>}
-
       </div>
-
     </div>
   );
 };

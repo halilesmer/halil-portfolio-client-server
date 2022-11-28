@@ -10,12 +10,12 @@ export const About = () => {
 
   const getData = async () => {
     try {
-      const response = await fetch("http://localhost:4000/about");
+      const response = await fetch("http://localhost:4000/api/abouts/halil");
       const result = await response.json();
       console.log("getData: ", result);
       setData(result);
     } catch (error) {
-      console.log("error getting prifile data: ", error);
+      console.log("error getting abouts data: ", error);
     }
   };
 

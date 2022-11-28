@@ -1,15 +1,17 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import { Container } from "@mui/material";
+
+import { Route, Routes } from "react-router-dom";
+
 import { About } from "./components/About.js";
-import { Contact } from "./components/Contact.js";
-import { Impressum } from "./components/Impressum.js";
-import { Projects } from "./components/Projects.js";
-import {Footer} from "./components/Footer.js";
 import Aside from "./components/Aside.js";
+import { Contact } from "./components/Contact.js";
+import { Container } from "@mui/material";
+import {Footer} from "./components/Footer.js";
+import { Impressum } from "./components/Impressum.js";
+import  {InsertImageForm}  from "./components/insertImage/InsertImageForm.js";
+import { Projects } from "./components/Projects.js";
 import ResponsiveAppBar from "./components/ResponsiveAppBar.js";
 import { Resume } from "./components/Resume.js";
-import  {InsertImageForm}  from "./components/insertImage/InsertImageForm.js";
 
 function App() {
   return (
@@ -25,7 +27,7 @@ function App() {
           <Container component={"main"} id="mainContainer">
             <Routes>
               <Route path="/" element={<About />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/abouts/halil" element={<About />} />
 
               <Route path="/resume" element={<Resume />} />
               <Route path="/contact" element={<Contact />} />

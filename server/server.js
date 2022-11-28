@@ -1,4 +1,4 @@
-import aboutRoute from "./api/aboutsRoute.js";
+import aboutsRoute from "./api/aboutsRoute.js";
 // import bodyParser from "body-parser";
 import { connectMdb } from "./util/connectMdb.js";
 import cors from "cors";
@@ -33,13 +33,13 @@ const addMiddelWare = () => {
 // app.use(bodyParser.json());
 
 const loadRoutes = () => {
-  app.use("/api/about", aboutRoute);
+  app.use("/api/abouts", aboutsRoute);
 
-  app.use("/api/resume", resumesRoute);
+  app.use("/api/resumes", resumesRoute);
   app.use("/api/projects", projectsRoute);
 };
 
-// app.use('/', aboutRoute);
+// app.use('/', aboutsRoute);
 
 (function controller() {
   addMiddelWare();

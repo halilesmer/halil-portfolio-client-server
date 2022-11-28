@@ -70,7 +70,7 @@ export const Projects = () => {
                         height="140"
                         image={item?.img}
                         alt="green iguana"
-                        style={{ height: '300px', inlineSize:'auto', margin: 'auto'}}
+                        style={{ height: '300px', margin: 'auto'}}
                       />
                     </Link>
 

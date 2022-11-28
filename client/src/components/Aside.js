@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import {
   Avatar,
   Box,
@@ -10,6 +11,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
+
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { NavLink } from "react-router-dom";
 import avatar from "../assets/halil-esmer-profil-picture_sidebar.webp";
@@ -54,7 +56,7 @@ export default function Aside() {
           <List sx={styleLists}>
             <NavLink
               end
-              to="/about"
+              to="/abouts/halil"
               className={({ isActive }) => (isActive ? "active" : "inactive")}
             >
               <ListItem disablePadding>

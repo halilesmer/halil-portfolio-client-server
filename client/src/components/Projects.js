@@ -13,27 +13,33 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
-import GitHubIcon from '@mui/icons-material/GitHub';
-import { fetchDataProjects } from '../axios/index.js';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import { nodeEnv } from "../utils/config.js";
 
 export const Projects = () => {
+  const [data, setData] = useState([]);
+  const env = nodeEnv.serverURL;
 
-  const [data, setData] = useState([])
+  const getData = async () => {
+    try {
+      const response = await fetch(`${env}/projects/halil`);
+      const result = await response.json();
+      console.log("getData: ", result);
+      setData(result);
+    } catch (error) {
+      console.log("error getting abouts data: ", error);
+    }
+  };
 
   useEffect(() => {
-    const getData = async () => {
-      const { data } = await fetchDataProjects();
-      console.log("data: ", data);
-      setData(data)
-    }
-
-    getData()
-  }, [])
+    getData();
+    // eslint-disable-next-line
+  }, []);
 
   const styleCard = {
-    width: '500',
-    maxWidth: '345',
-    maxHeight: '650',
+    width: "500",
+    maxWidth: "345",
+    maxHeight: "650",
     boxShadow: 5,
     p: 1,
     margin: 0,
@@ -41,12 +47,9 @@ export const Projects = () => {
 
   return (
     <Box id="projects">
-      <Container maxWidth="lm" sx={{textAlign: 'center'}}>
-      
-      {!data.length && <CircularProgress /> }
-        <h1>
-          Projects
-        </h1>
+      <Container maxWidth="lm" sx={{ textAlign: "center" }}>
+        {!data.length && <CircularProgress />}
+        <h1>Projects</h1>
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
@@ -54,11 +57,22 @@ export const Projects = () => {
           style={{ minHeight: "100vh" }}
         >
           {data.length &&
-
             data?.map((item, index) => {
               return (
-                <Grid item xs={12} sm={4} md={6} key={index}
-                  style={{ height: "fit-content", textAlign: 'initial', margin: 'auto', paddingLeft: 'unset', maxWidth:'325px'}}>
+                <Grid
+                  item
+                  xs={12}
+                  sm={4}
+                  md={6}
+                  key={index}
+                  style={{
+                    height: "fit-content",
+                    textAlign: "initial",
+                    margin: "auto",
+                    paddingLeft: "unset",
+                    maxWidth: "325px",
+                  }}
+                >
                   <Card sx={styleCard}>
                     <Link
                       href={item?.link}
@@ -70,15 +84,24 @@ export const Projects = () => {
                         height="140"
                         image={item?.img}
                         alt="green iguana"
-                        style={{ height: '300px', margin: 'auto'}}
+                        style={{ height: "300px", margin: "auto" }}
                       />
                     </Link>
 
                     <CardContent>
-                      <Typography className="cardHeader" gutterBottom variant="h5" component="div">
+                      <Typography
+                        className="cardHeader"
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                      >
                         {item?.title}
                       </Typography>
-                      <Typography variant="body2" component='p' color="text.secondary">
+                      <Typography
+                        variant="body2"
+                        component="p"
+                        color="text.secondary"
+                      >
                         {item?.description}
                       </Typography>
                     </CardContent>
@@ -97,13 +120,12 @@ export const Projects = () => {
                         rel="noopener noreferrer"
                         size="small"
                       >
-
                         <GitHubIcon />
                       </Button>
                     </CardActions>
                   </Card>
                 </Grid>
-              )
+              );
             })}
         </Grid>
       </Container>

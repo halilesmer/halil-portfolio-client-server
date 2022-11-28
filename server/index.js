@@ -4,7 +4,6 @@ import { connectMdb } from "./util/connectMdb.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
-import mongoose  from "mongoose";
 import nodemailer from "nodemailer";
 import projectsRoute from "./api/projectsRoute.js";
 import resumesRoute from "./api/resumesRoute.js";
@@ -15,7 +14,6 @@ const app = express();
 dotenv.config();
 app.use(express.json({ extended: false }));
 // app.use(express.json({ limit: "20mb" }));
-
 
 const addMiddelWare = () => {
   app.use(
@@ -39,7 +37,7 @@ const loadRoutes = () => {
   app.use("/api/projects", projectsRoute);
 };
 
-
+// app.use('/', aboutsRoute);
 
 (function controller() {
   addMiddelWare();
@@ -55,15 +53,15 @@ app.post("/send_mail", async (req, res) => {
 
   try {
     const transport = nodemailer.createTransport({
-      host: mailHost,
-      port: mailPort,
+      host: process.env.MAIL_HOST,
+      port: process.env.MAIL_PORT,
       auth: {
-        user: mailUser,
-        pass: mailPass,
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
       },
     });
     const emailSent = await transport.sendMail({
-      from: mailFrom,
+      from: process.env.MAIL_FROM,
       to: "halil@esmer.de",
       subject: `${subjectText}`,
       html: `<div style="

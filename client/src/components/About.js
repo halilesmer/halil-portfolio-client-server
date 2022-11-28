@@ -2,15 +2,16 @@ import { CircularProgress, Container } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import { Box } from "@mui/system";
-
-// import { fetchDataAbout } from '../axios/index.js';
+import { nodeEnv } from "../utils/config";
 
 export const About = () => {
   const [data, setData] = useState([]);
+  const env = nodeEnv.serverURL;
+  console.log("env: ", env);
 
   const getData = async () => {
     try {
-      const response = await fetch("http://localhost:4000/api/abouts/halil");
+      const response = await fetch(`${env}/abouts/halil`);
       const result = await response.json();
       console.log("getData: ", result);
       setData(result);
@@ -20,12 +21,8 @@ export const About = () => {
   };
 
   useEffect(() => {
-    // const getData = async () => {
-    //   const { data } = await fetchDataAbout();
-    //   setData(data)
-    // }
-
     getData();
+    // eslint-disable-next-line
   }, []);
 
   return (

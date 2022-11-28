@@ -1,23 +1,22 @@
-
 import {
   Box,
+  Button,
   Card,
   CardContent,
-  Grid,
+  CircularProgress,
   Container,
+  Grid,
   TextField,
-  Typography,
-  Button, 
-  CircularProgress
+  Typography
 } from "@mui/material";
 import React, { useState } from "react";
-import useFetch from './UseFetch.js';
-import keys from "../config.js";
 
 import TransitionAlerts from './TransitionAlerts.js';
+import {nodeEnv} from "../utils/config.js";
+import useFetch from './UseFetch.js';
 
 export const Contact = () => {
-  const { post } = useFetch(keys.serverURL);
+  const { post } = useFetch(nodeEnv.serverURL);
   const [open, setOpen] = useState(false);
   
 const [buttonCircular, setButtonCircular] = useState(false)

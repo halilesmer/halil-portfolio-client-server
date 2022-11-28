@@ -1,5 +1,4 @@
 import aboutsRoute from "./api/aboutsRoute.js";
-// import bodyParser from "body-parser";
 import { connectMdb } from "./util/connectMdb.js";
 import cors from "cors";
 import dotenv from "dotenv";

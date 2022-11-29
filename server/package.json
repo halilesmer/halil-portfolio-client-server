@@ -1,12 +1,15 @@
 {
   "name": "portfolio-halil",
   "version": "1.3.0",
-  "description": "",
+  "description": "Halil's Portfolio Page",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
     "build": "",
     "vercel-build": "node ./build.js"
+  },
+  "engines": {
+    "node": ">=19.1.0"
   },
   "type": "module",
   "keywords": [],

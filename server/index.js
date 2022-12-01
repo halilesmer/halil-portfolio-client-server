@@ -1,4 +1,5 @@
 import aboutsRoute from "./api/aboutsRoute.js";
+import bodyParser from "body-parser";
 import { connectMdb } from "./util/connectMdb.js";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -10,6 +11,8 @@ import resumesRoute from "./api/resumesRoute.js";
 const port = process.env.PORT || 4000;
 
 const app = express();
+// app.use(bodyParser.json());  
+
 dotenv.config();
 app.use(express.json({ extended: false }));
 // app.use(express.json({ limit: "20mb" }));
@@ -22,7 +25,7 @@ const addMiddelWare = () => {
   );
   const options = {
     credentials: true,
-    origin: ["http://localhost:3000", "https://www.esmer.de"],
+    origin: ["http://localhost:3000", "https://www.esmer.de", "https://server-halilesmer.vercel.app/", "https://portfolio-halil-server.vercel.app/", "https://vercel.com/"],
   };
   app.use(cors(options));
 };

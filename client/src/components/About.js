@@ -11,10 +11,7 @@ export const About = () => {
 
   const getData = async () => {
     try {
-      // const response = await fetch(`${env}/abouts/halil`);
-      const response = await fetch(
-        `https://portfolio-halil-server-jiudcl1b9-halilesmer.vercel.app/api/abouts/halil`
-      );
+      const response = await fetch(`${env}/abouts/halil`);
       const result = await response.json();
       console.log("getData: ", result);
       setData(result);

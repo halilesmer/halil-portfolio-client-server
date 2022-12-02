@@ -2,7 +2,7 @@ const nodeEnv = {
   serverURL:
     process.env.NODE_ENV === "development"
       ? "http://localhost:4000/api"
-      : "http://portfolio-halil-server-jiudcl1b9-halilesmer.vercel.app/api",
+      : "https://portfolio-halil-server-jiudcl1b9-halilesmer.vercel.app/api",
     };
     
     export  {nodeEnv}

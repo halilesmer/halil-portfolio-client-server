@@ -54,7 +54,7 @@ export const Projects = () => {
           container
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
-          style={{ minHeight: "100vh" }}
+          style={{ minHeight: "100vh", justifyContent:'center' }}
         >
           {data.length &&
             data?.map((item, index) => {
@@ -68,7 +68,7 @@ export const Projects = () => {
                   style={{
                     height: "fit-content",
                     textAlign: "initial",
-                    margin: "auto",
+                    margin: "auto 5px",
                     paddingLeft: "unset",
                     maxWidth: "325px",
                   }}
@@ -84,7 +84,7 @@ export const Projects = () => {
                         height="140"
                         image={item?.img}
                         alt="green iguana"
-                        style={{ height: "300px", margin: "auto" }}
+                        style={{ height: "300px", margin: "auto", border: 'dotted 0.5px #8d9294' }}
                       />
                     </Link>
 

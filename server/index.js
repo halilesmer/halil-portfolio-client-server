@@ -25,7 +25,7 @@ const addMiddelWare = () => {
   );
   const options = {
     credentials: true,
-    origin: ["http://localhost:3000", "https://www.esmer.de", "https://server-halilesmer.vercel.app/", "https://portfolio-halil-server.vercel.app/", "https://vercel.com/"],
+    origin: ["http://localhost:3000", "https://halil-portfolio-client.vercel.app/"],
   };
   app.use(cors(options));
 };

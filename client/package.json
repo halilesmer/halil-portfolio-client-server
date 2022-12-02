@@ -2,6 +2,7 @@
   "name": "portfolio-halil",
   "version": "0.3.0",
   "private": true,
+  "proxy": "https://halil-portfolio-client.vercel.app",
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",

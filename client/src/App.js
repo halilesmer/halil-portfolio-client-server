@@ -16,11 +16,11 @@ import { Resume } from "./components/Resume.js";
 function App() {
   return (
     <>
-      <div id="firstDiv">
+      <Container className="first-con">
         <ResponsiveAppBar />
 
         <div id="secondDiv">
-          <Container id="aside" component={"aside"} fixed>
+          <Container className="aside" component={"aside"} fixed>
             <Aside />
           </Container>
 
@@ -38,7 +38,7 @@ function App() {
           </Container>
         </div>
         <Footer />
-      </div>
+      </Container>
     </>
   );
 }

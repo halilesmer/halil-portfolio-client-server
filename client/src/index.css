@@ -47,6 +47,10 @@ header#appBar {
   }
 }
 
+.appbar-toolbar {
+  min-height: unset !important;
+}
+
 /* --- Hamburger button --- starts */
 @media (min-width: 900px) {
   .css-1lvtzne {
@@ -70,7 +74,7 @@ div#secondDiv {
 }
 
 /* Aside Navigation ----------------------------- starts */
-aside#aside {
+aside.aside {
   position: relative;
   min-width: 200px;
   max-width: 10%;
@@ -87,7 +91,7 @@ aside#aside {
 }
 
 @media only screen and (max-width: 1000px) {
-  aside#aside {
+  aside.aside {
     min-width: 0px;
     position: relative;
     width: 0vw;
@@ -326,16 +330,18 @@ footer span {
   text-align: center !important;
 
 }
-.about-text{
-  max-width: 45rem!important;
+
+.about-text {
+  max-width: 45rem !important;
   text-align: left;
   letter-spacing: 0.5px;
 }
+
 @media only screen and (max-width: 600px) {
   .about-text {
     max-width: 33rem;
     font-size: 1rem;
-    }
+  }
 
 }
 

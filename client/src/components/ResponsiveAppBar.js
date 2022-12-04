@@ -1,19 +1,18 @@
-import React, {useState} from "react";
-import MenuIcon from "@mui/icons-material/Menu";
 import {
+  AppBar,
   Avatar,
   Box,
-  AppBar,
-  Toolbar,
-  IconButton,
-  Container,
   Button,
+  Container,
+  IconButton,
+  Toolbar,
   Tooltip,
 } from "@mui/material";
+import React, {useState} from "react";
 
-
-import { NavLink } from "react-router-dom";
 import Drawer from "./Drawer.js";
+import MenuIcon from "@mui/icons-material/Menu";
+import { NavLink } from "react-router-dom";
 import avatar from "../assets/halil-esmer-profil-picture.webp";
 
 const ResponsiveAppBar = () => {
@@ -25,9 +24,9 @@ const ResponsiveAppBar = () => {
 
   return (
     <AppBar id="appBar" position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+      <Container className="appbar-con" maxWidth="xl">
+        <Toolbar className="appbar-toolbar" disableGutters>
+          <Box className="appbar-icon-con" sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"

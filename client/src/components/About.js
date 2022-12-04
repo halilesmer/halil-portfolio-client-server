@@ -26,26 +26,27 @@ export const About = () => {
   }, []);
 
   return (
-    <Box id="about">
-      <Container maxWidth="lm">
+    <Container className="about-con">
+      <Box maxWidth="lm">
         {!data.length ? (
           <CircularProgress />
         ) : (
           data?.map((item, index) => {
             return (
               <div key={index}>
-                <h1>{item.title}</h1>
-                <p style={{ textAlign: "justify", letterSpacing: "3px" }}>
-                  {item.description_1}
-                </p>
-                <p style={{ textAlign: "left", letterSpacing: "3px" }}>
+                <h1 className="about-welcome-header">{item.title}</h1>
+                <p className="about-text">{item.description_1}</p>
+                <p
+                  className="about-text"
+                  // style={{ textAlign: "left", letterSpacing: "3px" }}
+                >
                   {item.contact_1}
                 </p>
               </div>
             );
           })
         )}
-      </Container>
-    </Box>
+      </Box>
+    </Container>
   );
 };

@@ -11,7 +11,7 @@ import resumesRoute from "./api/resumesRoute.js";
 const port = process.env.PORT || 4000;
 
 const app = express();
-// app.use(bodyParser.json());  
+// app.use(bodyParser.json());
 
 dotenv.config();
 app.use(express.json({ extended: false }));
@@ -47,8 +47,6 @@ const loadRoutes = () => {
   app.use("/api/projects", projectsRoute);
 };
 
-// app.use('/', aboutsRoute);
-
 (function controller() {
   addMiddelWare();
   connectMdb();
@@ -58,18 +56,25 @@ const loadRoutes = () => {
 //app.use(cors({credentials: true, origin: 'https://halil-portfolio-webside.netlify.app'}))
 
 //Set the Nodemailer  - Send Email From ReactJS and Node App -starts
-app.post("/send_mail", async (req, res) => {
+app.post("/api/send_mail", async (req, res) => {
   let { firstN, lastN, phoneN, email, subjectText, message } = req.body;
 
+  let configOptions = {
+    host: process.env.MAIL_HOST,
+    port: process.env.MAIL_PORT,
+    auth: {
+      user: process.env.MAIL_USER,
+      pass: process.env.MAIL_PASS,
+    },
+    tls: {
+      rejectUnauthorized: true,
+      minVersion: "TLSv1.2",
+    },
+  };
+
   try {
-    const transport = nodemailer.createTransport({
-      host: process.env.MAIL_HOST,
-      port: process.env.MAIL_PORT,
-      auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
-      },
-    });
+    const transport = nodemailer.createTransport(configOptions);
+
     const emailSent = await transport.sendMail({
       from: process.env.MAIL_FROM,
       to: "halil@esmer.de",
@@ -101,4 +106,3 @@ app.post("/send_mail", async (req, res) => {
 app.listen(port, (req, res) => {
   console.log(`Server is running on ${port} port`);
 });
-

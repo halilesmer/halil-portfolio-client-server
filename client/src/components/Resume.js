@@ -9,20 +9,21 @@ import React, { useEffect, useState } from "react";
 import { Viewer, Worker } from "@react-pdf-viewer/core";
 
 import { nodeEnv } from "../utils/config.js";
+import useFetch from "./UseFetch.js";
 import { zoomPlugin } from "@react-pdf-viewer/zoom";
 
 export const Resume = () => {
   const [data, setData] = useState([]);
   const [pdfFile, setPdfFile] = useState([]);
   const env = nodeEnv.serverURL;
+  const { get } = useFetch(`${env}/resumes`);
 
   const zoomPluginInstance = zoomPlugin();
   const { ZoomInButton, ZoomOutButton, ZoomPopover } = zoomPluginInstance;
 
   const getData = async () => {
     try {
-      const response = await fetch(`${env}/resumes/halil`);
-      const result = await response.json();
+      const result = await get(`/halil`);
       console.log("getData: ", result);
       setPdfFile(result);
     } catch (error) {

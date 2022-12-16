@@ -7,65 +7,66 @@ import {
   Container,
   Grid,
   TextField,
-  Typography
+  Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 
-import TransitionAlerts from './TransitionAlerts.js';
-import {nodeEnv} from "../utils/config.js";
-import useFetch from './UseFetch.js';
+import TransitionAlerts from "./TransitionAlerts.js";
+import { nodeEnv } from "../utils/config.js";
+import useFetch from "./UseFetch.js";
 
 export const Contact = () => {
   const { post } = useFetch(nodeEnv.serverURL);
   const [open, setOpen] = useState(false);
-  
-const [buttonCircular, setButtonCircular] = useState(false)
+
+  const [buttonCircular, setButtonCircular] = useState(false);
   const [input, setInput] = useState({
-    firstN: '',
-    lastN: '',
-    phoneN: '',
-    email: '',
-    subjectText: '',
-    message: '',
-  })
+    firstN: "",
+    lastN: "",
+    phoneN: "",
+    email: "",
+    subjectText: "",
+    message: "",
+  });
   const { firstN, lastN, phoneN, email, subjectText, message } = input;
 
-
-
-  const sendMessage = (event) => {
+  const sendMessage = async (event) => {
     event.preventDefault();
-    setButtonCircular(true)
-    post("/send_mail", {
-      firstN, lastN, phoneN, email, subjectText, message
-    }).then(data => {
-      setOpen(true)
-      setButtonCircular(false)
+    setButtonCircular(true);
+    try {
+      await post("/send_mail", {
+        firstN,
+        lastN,
+        phoneN,
+        email,
+        subjectText,
+        message,
+      });
+      setOpen(true);
+      setButtonCircular(false);
       /* timeout of TransitionAlerts */
       setTimeout(() => {
-        setOpen(false)
-
-      }, 20000)
-
-    }).catch(error => console.error(error));
+        setOpen(false);
+      }, 20000);
+    } catch (error) {
+      console.log("error: ", error);
+    }
 
     setInput({
-      firstN: '',
-      lastN: '',
-      phoneN: '',
-      email: '',
-      subjectText: '',
-      message: '',
+      firstN: "",
+      lastN: "",
+      phoneN: "",
+      email: "",
+      subjectText: "",
+      message: "",
     });
+  };
+  console.log("openContact: ", open);
 
-
-  }
-      console.log("openContact: ", open);
-
-  
   return (
     <Box id="contact">
       <Container>
-        <Typography gutterBottom variant="h1" >
+        <Typography gutterBottom variant="h1">
           Contact Form
         </Typography>
 
@@ -196,5 +197,4 @@ const [buttonCircular, setButtonCircular] = useState(false)
       </Container>
     </Box>
   );
-
 };

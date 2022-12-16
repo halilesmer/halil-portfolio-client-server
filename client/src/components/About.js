@@ -3,16 +3,16 @@ import { useEffect, useState } from "react";
 
 import { Box } from "@mui/system";
 import { nodeEnv } from "../utils/config";
+import useFetch from "./UseFetch.js";
 
 export const About = () => {
   const [data, setData] = useState([]);
   const env = nodeEnv.serverURL;
-  console.log("env: ", env);
+  const { get } = useFetch(`${env}/abouts`);
 
   const getData = async () => {
     try {
-      const response = await fetch(`${env}/abouts/halil`);
-      const result = await response.json();
+      const result = await get(`/halil`);
       console.log("getData: ", result);
       setData(result);
     } catch (error) {

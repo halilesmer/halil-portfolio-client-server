@@ -15,16 +15,16 @@ import React, { useEffect, useState } from "react";
 
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { nodeEnv } from "../utils/config.js";
+import useFetch from "./UseFetch.js";
 
 export const Projects = () => {
   const [data, setData] = useState([]);
   const env = nodeEnv.serverURL;
+  const { get } = useFetch(`${env}/projects`);
 
   const getData = async () => {
     try {
-      const response = await fetch(`${env}/projects/halil`);
-      const result = await response.json();
-      console.log("getData: ", result);
+      const result = await get(`/halil`);
       setData(result);
     } catch (error) {
       console.log("error getting abouts data: ", error);
@@ -54,7 +54,7 @@ export const Projects = () => {
           container
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
-          style={{ minHeight: "100vh", justifyContent:'center' }}
+          style={{ minHeight: "100vh", justifyContent: "center" }}
         >
           {data.length &&
             data?.map((item, index) => {
@@ -84,7 +84,11 @@ export const Projects = () => {
                         height="140"
                         image={item?.img}
                         alt="green iguana"
-                        style={{ height: "300px", margin: "auto", border: 'dotted 0.5px #8d9294' }}
+                        style={{
+                          height: "300px",
+                          margin: "auto",
+                          border: "dotted 0.5px #8d9294",
+                        }}
                       />
                     </Link>
 

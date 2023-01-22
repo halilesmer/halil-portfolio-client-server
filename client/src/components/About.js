@@ -13,7 +13,6 @@ export const About = () => {
   const getData = async () => {
     try {
       const result = await get(`/halil`);
-      console.log("getData: ", result);
       setData(result);
     } catch (error) {
       console.log("error getting abouts data: ", error);

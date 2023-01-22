@@ -25,7 +25,10 @@ export const Projects = () => {
   const getData = async () => {
     try {
       const result = await get(`/halil`);
-      setData(result);
+      // sort data by date
+      setData(
+        result.sort((a, b) => new Date(b.updatedDt) - new Date(a.updatedDt))
+      );
     } catch (error) {
       console.log("error getting abouts data: ", error);
     }
@@ -45,6 +48,11 @@ export const Projects = () => {
     margin: 0,
   };
 
+  console.log(
+    "data: ",
+    data.length &&
+      data.sort((a, b) => new Date(b.updatedDt) - new Date(a.updatedDt))
+  );
   return (
     <Box id="projects">
       <Container maxWidth="lm" sx={{ textAlign: "center" }}>
@@ -88,6 +96,7 @@ export const Projects = () => {
                           height: "300px",
                           margin: "auto",
                           border: "dotted 0.5px #8d9294",
+                          objectFit: "contain",
                         }}
                       />
                     </Link>

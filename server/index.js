@@ -27,6 +27,7 @@ const addMiddelWare = () => {
     credentials: true,
     origin: [
       "http://localhost:3000",
+      "http://localhost:3001",
       "https://www.esmer.de/",
       "http://www.esmer.de/",
       "https://halil-portfolio-client-ao2kzqruw-halilesmer.vercel.app/",
